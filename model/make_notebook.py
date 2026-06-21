@@ -8,8 +8,10 @@ Run:  python make_notebook.py
 """
 import json, re, sys, os
 
-SRC = os.path.join(os.path.dirname(__file__), "gridlock_pipeline.py")
-OUT = os.path.join(os.path.dirname(__file__), "gridlock_colab.ipynb")
+# default: the main pipeline; override with `python make_notebook.py <src.py> <out.ipynb>`
+_HERE = os.path.dirname(__file__)
+SRC = sys.argv[1] if len(sys.argv) > 1 else os.path.join(_HERE, "gridlock_pipeline.py")
+OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(_HERE, "gridlock_colab.ipynb")
 
 def parse_cells(text):
     lines = text.splitlines()

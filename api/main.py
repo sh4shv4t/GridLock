@@ -15,12 +15,22 @@ Run:
     uvicorn main:app --reload --port 8000
 Docs at http://localhost:8000/docs
 """
-import json, os, time
+import json, os, sys, time
+from datetime import datetime, timezone
 from typing import Optional, List
 
 import requests
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", "model"))
+from baseline_store import BaselineStore  # rolling 8-week ECS baseline
+import db as cis_db                        # optional SQLite-backed serving
+
+# If GRIDLOCK_DB points at a populated SQLite file, serve from it; else from JSON.
+DB_PATH = os.environ.get("GRIDLOCK_DB", "")
+def _db_mode():
+    return bool(DB_PATH) and os.path.exists(DB_PATH)
 
 DATA_CANDIDATES = [
     os.environ.get("GRIDLOCK_DATA", ""),
@@ -30,8 +40,16 @@ DATA_CANDIDATES = [
 ]
 MAPPLS_TOKEN = os.environ.get("MAPPLS_TOKEN", "")
 ECS_WEIGHT = 0.35          # must match CIS_WEIGHTS["ECS"] in the pipeline
-ECS_BASELINE = 0.0         # baseline live_ratio; wire an 8-week table here when available
 CACHE_TTL = 300            # seconds to trust a live ECS value
+
+# Rolling 8-week baseline (per segment, per hour-of-week). Read on every live
+# refresh; populated separately by a clean-segment poller (hotspot queries are
+# violation windows and must NOT feed it). Starts empty -> baseline 0 until ready.
+_baseline = BaselineStore(os.environ.get("GRIDLOCK_BASELINE", "ecs_baseline.json"))
+
+def _hour_of_week(dt=None):
+    dt = dt or datetime.now(timezone.utc).astimezone()
+    return dt.weekday() * 24 + dt.hour
 
 app = FastAPI(title="Gridlock CIS API", version="1.0",
               description="Explainable Congestion Impact Scores for parking hotspots.")
@@ -88,10 +106,12 @@ def _refresh_ecs(rec):
     if flow:
         cur, free = flow
         live_ratio = 1 - (cur / free) if free else 0.0
-        ecs = min(max(0.0, live_ratio - ECS_BASELINE) / 0.5, 1.0)
+        baseline = _baseline.get(hid, _hour_of_week())     # rolling 8-week clean baseline
+        ecs = min(max(0.0, live_ratio - baseline) / 0.5, 1.0)
         _ecs_cache[hid] = (ecs, now)
-        low_conf = False
-        reason = f"live speed {cur:.0f} km/h vs free-flow {free:.0f} km/h"
+        low_conf = not _baseline.ready(hid, _hour_of_week())  # low-conf until baseline warms up
+        reason = (f"live speed {cur:.0f} km/h vs free-flow {free:.0f} km/h"
+                  + ("" if not low_conf else ", baseline warming up"))
     elif cached and now - cached[1] < CACHE_TTL:
         ecs, low_conf, reason = cached[0], True, "cached live value (provider timeout)"
     else:
@@ -113,8 +133,10 @@ def _refresh_ecs(rec):
 
 @app.get("/health")
 def health():
-    recs = _load()
-    return {"status": "ok", "records": len(recs), "source": _state["path"],
+    src = f"sqlite:{DB_PATH}" if _db_mode() else (_load() and _state["path"])
+    n = len(cis_db.query_top(DB_PATH, limit=100000)) if _db_mode() else len(_state["records"])
+    return {"status": "ok", "records": n, "source": src,
+            "backend": "sqlite" if _db_mode() else "json",
             "live_ecs_enabled": bool(MAPPLS_TOKEN)}
 
 
@@ -124,6 +146,9 @@ def list_hotspots(
     min_cis: float = Query(0.0, ge=0, le=100),
     limit: int = Query(100, ge=1, le=2000),
 ):
+    if _db_mode():
+        out = cis_db.query_top(DB_PATH, limit=limit, cls=cls, min_cis=min_cis)
+        return {"count": len(out), "results": out}
     recs = _load()
     out = [r for r in recs if r["cis"] >= min_cis and (cls is None or r["class"].lower() == cls.lower())]
     return {"count": len(out), "results": out[:limit]}
@@ -131,8 +156,11 @@ def list_hotspots(
 
 @app.get("/hotspots/{hotspot_id}")
 def get_hotspot(hotspot_id: str, live: bool = Query(False, description="Refresh ECS from Mappls if a token is set")):
-    _load()
-    rec = _state["by_id"].get(hotspot_id)
+    if _db_mode():
+        rec = cis_db.get_by_id(hotspot_id, DB_PATH)
+    else:
+        _load()
+        rec = _state["by_id"].get(hotspot_id)
     if not rec:
         raise HTTPException(404, f"hotspot_id {hotspot_id} not found")
     return _refresh_ecs(rec) if live else rec

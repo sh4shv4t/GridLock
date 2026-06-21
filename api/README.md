@@ -10,11 +10,19 @@ Mappls when a token is set (with caching + `low_confidence` fallback).
 cd api
 pip install -r requirements.txt
 # optional overrides:
-export GRIDLOCK_DATA=../frontend/public/cis_hotspots.json
-export MAPPLS_TOKEN=...        # enables ?live=true ECS refresh
+export GRIDLOCK_DATA=../frontend/public/cis_hotspots.json   # JSON source (default)
+export GRIDLOCK_DB=../model/gridlock.db                     # serve from SQLite instead (model/db.py)
+export GRIDLOCK_BASELINE=ecs_baseline.json                  # rolling 8-week ECS baseline store
+export MAPPLS_TOKEN=...                                     # enables ?live=true ECS refresh
 uvicorn main:app --reload --port 8000
 ```
 Interactive docs: http://localhost:8000/docs
+
+**Serving backends:** set `GRIDLOCK_DB` to a SQLite file populated by
+`python model/db.py ingest` (kept fresh by `model/scheduler.py`) to serve from
+storage; otherwise it reads JSON. `/health` reports the active backend. With
+`MAPPLS_TOKEN` set, `?live=true` refreshes ECS from Mappls Flow minus the rolling
+8-week baseline (`baseline_store.py`), staying `low_confidence` until it warms up.
 
 ## Endpoints
 | Method | Path | Purpose |

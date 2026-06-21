@@ -11,6 +11,13 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+.ipynb_checkpoints/
+
+# Model artifacts (generated; copied into frontend/public for the app)
+model/outputs/
+model/outputs_test/
+model/full_run.log
+model/cache/
 
 # Raw dataset (organizer-provided, large — not redistributed)
 *.csv

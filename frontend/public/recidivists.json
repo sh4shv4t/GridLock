@@ -1,0 +1,1802 @@
+[
+  {
+    "vehicle": "FKN00GL4424",
+    "hits": 55,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.56,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL3514",
+    "hits": 42,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9795,
+    "top_lng": 77.61028,
+    "concentration": 0.64,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL9771",
+    "hits": 41,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97961,
+    "top_lng": 77.57658,
+    "concentration": 0.93,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL17863",
+    "hits": 41,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 0.9,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2906",
+    "hits": 35,
+    "vehicle_type": "CAR",
+    "top_lat": 12.98825,
+    "top_lng": 77.55025,
+    "concentration": 0.54,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL14092",
+    "hits": 34,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL15265",
+    "hits": 34,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL1875",
+    "hits": 30,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.97844,
+    "top_lng": 77.60725,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL19337",
+    "hits": 30,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 0.87,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL9852",
+    "hits": 29,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9827,
+    "top_lng": 77.61093,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL1175",
+    "hits": 28,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97853,
+    "top_lng": 77.58197,
+    "concentration": 0.96,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL1118",
+    "hits": 28,
+    "vehicle_type": "CAR",
+    "top_lat": 13.0,
+    "top_lng": 77.54984,
+    "concentration": 0.82,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL15753",
+    "hits": 28,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9795,
+    "top_lng": 77.61028,
+    "concentration": 0.86,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL8041",
+    "hits": 27,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.37,
+    "is_fleet_pattern": false
+  },
+  {
+    "vehicle": "FKN00GL8564",
+    "hits": 27,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 0.96,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL24601",
+    "hits": 26,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL20818",
+    "hits": 26,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL8361",
+    "hits": 26,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 0.88,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0420",
+    "hits": 26,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97437,
+    "top_lng": 77.5446,
+    "concentration": 0.92,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL1498",
+    "hits": 25,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 13.04801,
+    "top_lng": 77.57652,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL7963",
+    "hits": 25,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.48,
+    "is_fleet_pattern": false
+  },
+  {
+    "vehicle": "FKN00GL32387",
+    "hits": 25,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97961,
+    "top_lng": 77.57658,
+    "concentration": 0.64,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL25480",
+    "hits": 25,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 0.64,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2819",
+    "hits": 24,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98167,
+    "top_lng": 77.59948,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2445",
+    "hits": 24,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL9182",
+    "hits": 24,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.9968,
+    "top_lng": 77.54919,
+    "concentration": 0.96,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0395",
+    "hits": 24,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97426,
+    "top_lng": 77.57829,
+    "concentration": 0.92,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2692",
+    "hits": 24,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97437,
+    "top_lng": 77.5446,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0635",
+    "hits": 24,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0333",
+    "hits": 23,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL22956",
+    "hits": 23,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.9924,
+    "top_lng": 77.58762,
+    "concentration": 0.91,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6443",
+    "hits": 23,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 13.06936,
+    "top_lng": 77.58651,
+    "concentration": 0.43,
+    "is_fleet_pattern": false
+  },
+  {
+    "vehicle": "FKN00GL21720",
+    "hits": 23,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9795,
+    "top_lng": 77.61028,
+    "concentration": 0.61,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2817",
+    "hits": 23,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL17388",
+    "hits": 23,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.9924,
+    "top_lng": 77.58762,
+    "concentration": 0.78,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6355",
+    "hits": 23,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.98167,
+    "top_lng": 77.59948,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL13920",
+    "hits": 23,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.9827,
+    "top_lng": 77.61093,
+    "concentration": 0.61,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL9526",
+    "hits": 22,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98167,
+    "top_lng": 77.59948,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL12732",
+    "hits": 22,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9795,
+    "top_lng": 77.61028,
+    "concentration": 0.68,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2850",
+    "hits": 22,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.97437,
+    "top_lng": 77.5446,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL9334",
+    "hits": 22,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98167,
+    "top_lng": 77.59948,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL7910",
+    "hits": 22,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97426,
+    "top_lng": 77.57829,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL104980",
+    "hits": 22,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98167,
+    "top_lng": 77.59948,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL35922",
+    "hits": 22,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9795,
+    "top_lng": 77.61028,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL18629",
+    "hits": 22,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.55,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL4303",
+    "hits": 22,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL16746",
+    "hits": 22,
+    "vehicle_type": "SCHOOL VEHICLE",
+    "top_lat": 12.89387,
+    "top_lng": 77.63772,
+    "concentration": 0.55,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6310",
+    "hits": 22,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL14399",
+    "hits": 22,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98167,
+    "top_lng": 77.59948,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL5362",
+    "hits": 22,
+    "vehicle_type": "CAR",
+    "top_lat": 12.95778,
+    "top_lng": 77.70144,
+    "concentration": 0.91,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6353",
+    "hits": 22,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98167,
+    "top_lng": 77.59948,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6006",
+    "hits": 21,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0907",
+    "hits": 21,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL23079",
+    "hits": 21,
+    "vehicle_type": "CAR",
+    "top_lat": 12.99251,
+    "top_lng": 77.55393,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL11475",
+    "hits": 21,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97747,
+    "top_lng": 77.57895,
+    "concentration": 0.86,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL17172",
+    "hits": 21,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL22063",
+    "hits": 21,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.57,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL11028",
+    "hits": 21,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.95301,
+    "top_lng": 77.54305,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6334",
+    "hits": 21,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.04801,
+    "top_lng": 77.57652,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL18794",
+    "hits": 21,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97747,
+    "top_lng": 77.57895,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL8043",
+    "hits": 21,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.67,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL8015",
+    "hits": 21,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.57,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0636",
+    "hits": 21,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL3743",
+    "hits": 21,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9795,
+    "top_lng": 77.61028,
+    "concentration": 0.52,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL3531",
+    "hits": 21,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL18528",
+    "hits": 21,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.62,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL22258",
+    "hits": 21,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9827,
+    "top_lng": 77.61093,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL22537",
+    "hits": 20,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0734",
+    "hits": 20,
+    "vehicle_type": "CAR",
+    "top_lat": 13.00742,
+    "top_lng": 77.57102,
+    "concentration": 0.8,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL1199",
+    "hits": 20,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.98167,
+    "top_lng": 77.59948,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6860",
+    "hits": 20,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97961,
+    "top_lng": 77.57658,
+    "concentration": 0.75,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL7612",
+    "hits": 20,
+    "vehicle_type": "CAR",
+    "top_lat": 12.88637,
+    "top_lng": 77.64181,
+    "concentration": 0.75,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL7586",
+    "hits": 20,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 0.9,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL18074",
+    "hits": 20,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98167,
+    "top_lng": 77.59948,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL18309",
+    "hits": 20,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9827,
+    "top_lng": 77.61093,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL3688",
+    "hits": 20,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.45,
+    "is_fleet_pattern": false
+  },
+  {
+    "vehicle": "FKN00GL6946",
+    "hits": 20,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.9924,
+    "top_lng": 77.58762,
+    "concentration": 0.9,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL25402",
+    "hits": 20,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9795,
+    "top_lng": 77.61028,
+    "concentration": 0.7,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL19006",
+    "hits": 20,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.97437,
+    "top_lng": 77.5446,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL10449",
+    "hits": 20,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97747,
+    "top_lng": 77.57895,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL1048",
+    "hits": 20,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL3018",
+    "hits": 20,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97437,
+    "top_lng": 77.5446,
+    "concentration": 0.9,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL7760",
+    "hits": 20,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9795,
+    "top_lng": 77.61028,
+    "concentration": 0.75,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL24261",
+    "hits": 20,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 0.6,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL7998",
+    "hits": 20,
+    "vehicle_type": "CAR",
+    "top_lat": 12.96585,
+    "top_lng": 77.53725,
+    "concentration": 0.9,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL1243",
+    "hits": 20,
+    "vehicle_type": "CAR",
+    "top_lat": 12.99251,
+    "top_lng": 77.55393,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL24467",
+    "hits": 20,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.8,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL9606",
+    "hits": 19,
+    "vehicle_type": "CAR",
+    "top_lat": 12.99251,
+    "top_lng": 77.55393,
+    "concentration": 0.89,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL9990",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.9924,
+    "top_lng": 77.58762,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2993",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.9924,
+    "top_lng": 77.58762,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6219",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.00855,
+    "top_lng": 77.54878,
+    "concentration": 0.84,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL4480",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.79,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL7916",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97426,
+    "top_lng": 77.57829,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL11463",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0954",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL19014",
+    "hits": 19,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97853,
+    "top_lng": 77.58197,
+    "concentration": 0.74,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL20170",
+    "hits": 19,
+    "vehicle_type": "LGV",
+    "top_lat": 13.00649,
+    "top_lng": 77.52589,
+    "concentration": 0.79,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL3832",
+    "hits": 19,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 13.05136,
+    "top_lng": 77.52664,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL4020",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.00855,
+    "top_lng": 77.54878,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6423",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.58,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL10831",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97844,
+    "top_lng": 77.60725,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL21004",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.00855,
+    "top_lng": 77.54878,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2735",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL20898",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL12905",
+    "hits": 19,
+    "vehicle_type": "MAXI-CAB",
+    "top_lat": 12.97518,
+    "top_lng": 77.62345,
+    "concentration": 0.84,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL33465",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97853,
+    "top_lng": 77.58197,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL56080",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL32651",
+    "hits": 19,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 0.95,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6391",
+    "hits": 18,
+    "vehicle_type": "CAR",
+    "top_lat": 12.98184,
+    "top_lng": 77.54894,
+    "concentration": 0.83,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL4341",
+    "hits": 18,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.97437,
+    "top_lng": 77.5446,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL11705",
+    "hits": 18,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.9924,
+    "top_lng": 77.58762,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL1049",
+    "hits": 18,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL1032",
+    "hits": 18,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL44151",
+    "hits": 18,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.97426,
+    "top_lng": 77.57829,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0930",
+    "hits": 18,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 13.00742,
+    "top_lng": 77.57102,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL60534",
+    "hits": 18,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97426,
+    "top_lng": 77.57829,
+    "concentration": 0.78,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6629",
+    "hits": 18,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.72,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL24491",
+    "hits": 18,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.61,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL19786",
+    "hits": 18,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2715",
+    "hits": 18,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL7354",
+    "hits": 18,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 0.89,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL1641",
+    "hits": 18,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97426,
+    "top_lng": 77.57829,
+    "concentration": 0.89,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6652",
+    "hits": 18,
+    "vehicle_type": "TEMPO",
+    "top_lat": 12.99251,
+    "top_lng": 77.55393,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL4107",
+    "hits": 18,
+    "vehicle_type": "CAR",
+    "top_lat": 13.01282,
+    "top_lng": 77.55246,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL8154",
+    "hits": 17,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.59,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0889",
+    "hits": 17,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0397",
+    "hits": 17,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97426,
+    "top_lng": 77.57829,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL25145",
+    "hits": 17,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97953,
+    "top_lng": 77.60185,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL51416",
+    "hits": 17,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 0.82,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL11577",
+    "hits": 17,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97426,
+    "top_lng": 77.57829,
+    "concentration": 0.88,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL5111",
+    "hits": 17,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.99786,
+    "top_lng": 77.55221,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL58024",
+    "hits": 17,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL7952",
+    "hits": 17,
+    "vehicle_type": "LORRY/GOODS VEHICLE",
+    "top_lat": 12.88316,
+    "top_lng": 77.64115,
+    "concentration": 0.71,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL10031",
+    "hits": 17,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL7926",
+    "hits": 17,
+    "vehicle_type": "CAR",
+    "top_lat": 13.01282,
+    "top_lng": 77.55246,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL1880",
+    "hits": 17,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97844,
+    "top_lng": 77.60725,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL13988",
+    "hits": 17,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.96465,
+    "top_lng": 77.57633,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL41563",
+    "hits": 17,
+    "vehicle_type": "TEMPO",
+    "top_lat": 12.99251,
+    "top_lng": 77.55393,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL111727",
+    "hits": 17,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL3695",
+    "hits": 17,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL73563",
+    "hits": 17,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL17808",
+    "hits": 17,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL3502",
+    "hits": 17,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL18168",
+    "hits": 17,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL5280",
+    "hits": 17,
+    "vehicle_type": "CAR",
+    "top_lat": 12.99465,
+    "top_lng": 77.55156,
+    "concentration": 0.47,
+    "is_fleet_pattern": false
+  },
+  {
+    "vehicle": "FKN00GL0049",
+    "hits": 17,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.84251,
+    "top_lng": 77.64407,
+    "concentration": 0.59,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL12904",
+    "hits": 17,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97518,
+    "top_lng": 77.62345,
+    "concentration": 0.71,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2317",
+    "hits": 17,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 0.59,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL23586",
+    "hits": 16,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.98273,
+    "top_lng": 77.60251,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL54261",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL68690",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.96465,
+    "top_lng": 77.57633,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL32527",
+    "hits": 16,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL32407",
+    "hits": 16,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97747,
+    "top_lng": 77.57895,
+    "concentration": 0.75,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL3242",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL10586",
+    "hits": 16,
+    "vehicle_type": "LGV",
+    "top_lat": 12.97426,
+    "top_lng": 77.57829,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0088",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.9924,
+    "top_lng": 77.58762,
+    "concentration": 0.81,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL35636",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98167,
+    "top_lng": 77.59948,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL101845",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98167,
+    "top_lng": 77.59948,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL17572",
+    "hits": 16,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 0.62,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL17853",
+    "hits": 16,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL7161",
+    "hits": 16,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 13.05136,
+    "top_lng": 77.52664,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL14212",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL11800",
+    "hits": 16,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL62335",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.00747,
+    "top_lng": 77.55418,
+    "concentration": 0.56,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL49799",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL9159",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.99535,
+    "top_lng": 77.66413,
+    "concentration": 0.75,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2996",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.9924,
+    "top_lng": 77.58762,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL9032",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97185,
+    "top_lng": 77.65651,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2353",
+    "hits": 16,
+    "vehicle_type": "CAR",
+    "top_lat": 12.97747,
+    "top_lng": 77.57895,
+    "concentration": 0.75,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL50347",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97641,
+    "top_lng": 77.57592,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0923",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL14734",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.0,
+    "top_lng": 77.54984,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6175",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.00855,
+    "top_lng": 77.54878,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL40079",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.03514,
+    "top_lng": 77.59075,
+    "concentration": 0.75,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0938",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL7945",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.62,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL31097",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.56,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL0990",
+    "hits": 16,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL15642",
+    "hits": 16,
+    "vehicle_type": "PRIVATE BUS",
+    "top_lat": 12.92602,
+    "top_lng": 77.619,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL16020",
+    "hits": 16,
+    "vehicle_type": "LGV",
+    "top_lat": 12.97853,
+    "top_lng": 77.58197,
+    "concentration": 0.44,
+    "is_fleet_pattern": false
+  },
+  {
+    "vehicle": "FKN00GL38195",
+    "hits": 16,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9795,
+    "top_lng": 77.61028,
+    "concentration": 0.69,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6630",
+    "hits": 16,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 13.07256,
+    "top_lng": 77.58716,
+    "concentration": 0.62,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL16534",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL6780",
+    "hits": 16,
+    "vehicle_type": "CAR",
+    "top_lat": 13.0,
+    "top_lng": 77.54984,
+    "concentration": 0.81,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL15781",
+    "hits": 16,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9795,
+    "top_lng": 77.61028,
+    "concentration": 0.5,
+    "is_fleet_pattern": false
+  },
+  {
+    "vehicle": "FKN00GL2863",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.97437,
+    "top_lng": 77.5446,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL16984",
+    "hits": 16,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL27365",
+    "hits": 16,
+    "vehicle_type": "CAR",
+    "top_lat": 12.99786,
+    "top_lng": 77.55221,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL4759",
+    "hits": 16,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 0.81,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL4516",
+    "hits": 16,
+    "vehicle_type": "LGV",
+    "top_lat": 12.97747,
+    "top_lng": 77.57895,
+    "concentration": 0.94,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL1473",
+    "hits": 16,
+    "vehicle_type": "LGV",
+    "top_lat": 12.98825,
+    "top_lng": 77.55025,
+    "concentration": 0.75,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL4184",
+    "hits": 15,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9827,
+    "top_lng": 77.61093,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL15995",
+    "hits": 15,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 0.73,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2378",
+    "hits": 15,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 12.9924,
+    "top_lng": 77.58762,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL8821",
+    "hits": 15,
+    "vehicle_type": "MOTOR CYCLE",
+    "top_lat": 13.01067,
+    "top_lng": 77.55483,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL17374",
+    "hits": 15,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.93322,
+    "top_lng": 77.69078,
+    "concentration": 1.0,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL11015",
+    "hits": 15,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 12.98165,
+    "top_lng": 77.6079,
+    "concentration": 0.93,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL7134",
+    "hits": 15,
+    "vehicle_type": "PASSENGER AUTO",
+    "top_lat": 12.9827,
+    "top_lng": 77.61093,
+    "concentration": 0.93,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL2687",
+    "hits": 15,
+    "vehicle_type": "SCOOTER",
+    "top_lat": 13.00855,
+    "top_lng": 77.54878,
+    "concentration": 0.93,
+    "is_fleet_pattern": true
+  },
+  {
+    "vehicle": "FKN00GL10599",
+    "hits": 15,
+    "vehicle_type": "LGV",
+    "top_lat": 12.97532,
+    "top_lng": 77.58132,
+    "concentration": 0.73,
+    "is_fleet_pattern": true
+  }
+]

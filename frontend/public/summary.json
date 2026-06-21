@@ -1,0 +1,16 @@
+{
+  "total_violations": 298445,
+  "date_range": [
+    "2023-11-10",
+    "2024-04-08"
+  ],
+  "n_hotspots": 150,
+  "n_wards": 79,
+  "n_blindspots_total": 20,
+  "n_blindspots_in_top": 20,
+  "n_recidivists": 2352,
+  "evening_gap_pct": 0.9,
+  "morning_peak_hour": 10,
+  "capacity_exposure_vph": 445400,
+  "debiased_vs_naive_overlap": 0.06
+}

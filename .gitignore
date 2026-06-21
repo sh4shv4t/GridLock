@@ -19,6 +19,13 @@ model/outputs_test/
 model/full_run.log
 model/cache/
 
+# Runtime / trained artifacts
+*.db
+ecs_baseline.json
+model/cis_phase2_model*.txt
+model/cis_phase2_model*_calib.json
+**/stgcn_pred.json
+
 # Raw dataset (organizer-provided, large — not redistributed)
 *.csv
 backend/*.csv

@@ -104,11 +104,17 @@ re-learning patrol routes.
 
 ## Repo structure
 ```
-model/      ML pipeline + Colab notebook (the intelligence layer)
-  gridlock_pipeline.py   source of truth — runs locally and in Colab
+model/      ML pipeline + Colab notebooks (the intelligence layer)
+  gridlock_pipeline.py   source of truth — debiased model + CIS engine
   gridlock_colab.ipynb   generated notebook — upload to Colab to train
-  make_notebook.py       regenerates the .ipynb from the .py
-api/        Thin read-only FastAPI service over the CIS scores (contract endpoint)
+  stgcn_pipeline.py      STGCN ensemble (graph conv + GRU); stgcn_colab.ipynb
+  patrol_routing.py      shift-optimal patrol routes (greedy set cover)
+  cis_phase2_train.py    Phase-2 calibrated classifier training harness
+  baseline_store.py      rolling 8-week ECS baseline accumulator
+  db.py / scheduler.py   SQLite persistence + interval recompute
+  viirs_equity.py        ward-level equity analysis (VIIRS radiance optional)
+  make_notebook.py       regenerates .ipynb from any cell-marked .py
+api/        Thin read-only FastAPI service over the CIS scores (+ optional DB, live ECS)
 backend/    Legacy descriptive pipeline (Mappls live-traffic enrichment)
 frontend/   React + Mappls map — priority hotspots, blind spots, recidivists, CIS
 ```
@@ -154,43 +160,34 @@ the `.py`, then `python model/make_notebook.py` to regenerate the notebook.
 - [x] Debiasing: IPW, fixed-junction anchor, device-ID negative sampling
 - [x] OSM feature enrichment (roads, POIs, metro)
 - [x] LightGBM latent-rate model + spatio-temporal CV + SHAP
-- [x] Enforcement blind-spot detector
-- [x] Recidivist-vehicle clustering
+- [x] Enforcement blind-spot detector + recidivist-vehicle clustering
 - [x] Congestion Impact Score (Phase-1 rule classifier) + explanations
-- [x] Read-only CIS API (FastAPI)
+- [x] Read-only CIS API (FastAPI) + optional SQLite-backed serving
 - [x] React map: hotspots, blind spots, recidivists, CIS panel, before/after toggle
+- [x] **Shift-optimal patrol routing** (`patrol_routing.py`) — runs on real data
+- [x] **STGCN ensemble** (`stgcn_pipeline.py` / `stgcn_colab.ipynb`) — graph conv + GRU
+- [x] **Persistence + scheduler** (`db.py`, `scheduler.py`) — SQLite + interval recompute
+- [x] **VIIRS equity analysis** (`viirs_equity.py`) — spatial half runs now
+- [x] **Phase-2 training harness** (`cis_phase2_train.py`) — calibration + SHAP, ready to train
+- [x] **8-week ECS baseline accumulator** (`baseline_store.py`) + live-ECS wiring in the API
 
-**Left**
-- [ ] **Live Mappls Flow feed for ECS** — currently an OSM proxy flagged
-      `low_confidence`; the `ECSProvider` interface is ready for it
-- [ ] **8-week segment speed baseline** — needs continuous collection (can't be
-      backfilled from the historical dataset)
-- [ ] **Phase-2 trained CIS classifier** — needs ≥3 months of measured-delay
-      outcome labels; interface stubbed (`Phase2Classifier`)
-- [ ] **Persistence + scheduler** — today it's batch → static JSON; a DB +
-      cron-style recompute would make it a true live service
-- [ ] VIIRS night-light equity layer · STGCN ensemble · set-cover patrol routing
-      (see below)
+**Built, but waiting on an input only you can supply** (mechanism is in place; it
+activates the moment the input exists):
+- [ ] **Live Mappls Flow feed for ECS** — needs a Mappls token (`MAPPLS_TOKEN`);
+      until then ECS is the OSM proxy flagged `low_confidence`
+- [ ] **8-week baseline values** — needs ~8 weeks of live polling to accumulate
+      (the store + decay logic are done; it can't be backfilled from history)
+- [ ] **Phase-2 real labels** — needs ≥3 months of measured-delay outcomes; the
+      harness trains today on a placeholder label and swaps in real ones via the
+      `outcome_class` column
+- [ ] **VIIRS radiance** — needs a NASA Earthdata GeoTIFF (`--viirs`); the ward
+      join + equity report are done and run without it
 
-## Future work (deferred, by design)
-
-- **VIIRS night-light socioeconomic layer.** Monthly VIIRS Day/Night Band
-  composites (NASA Earthdata, free) rasterized over BBMP ward boundaries give a
-  current-year economic-activity proxy — better than 2011 census income.
-  Enables the **equity analysis**: are high-activity wards getting
-  disproportionate enforcement vs low-income wards at equal road criticality?
-  Deferred only because it needs Earthdata auth + raster handling; the join key
-  (ward boundaries) is already wired.
-- **STGCN ensemble.** A spatio-temporal graph conv net (H3 cells as nodes,
-  adjacency as edges) to model congestion propagation between cells. Strictly
-  more expressive than the tree model for spillover effects; best as a second
-  ensemble member.
-- **Shift-optimal patrol routing.** Given the next-6h hotspot predictions, solve
-  a set-cover / max-coverage assignment of patrol units to cells under travel
-  constraints — turning the heatmap into a one-click "plan my route" for an
-  officer.
+## Future work (genuinely not started)
 - **Weather & events features.** Hourly rainfall (free historical) and a
   holiday/event calendar to explain temporal variance.
+- **Ensemble blend in production.** STGCN predictions are exported; blending them
+  with the LightGBM latent rate into the live priority score is a small wiring step.
 
 ## Data sources
 - Violations CSV — organizer-provided (gitignored, not committed).

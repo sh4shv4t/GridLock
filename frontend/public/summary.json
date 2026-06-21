@@ -5,12 +5,17 @@
     "2024-04-08"
   ],
   "n_hotspots": 150,
-  "n_wards": 79,
+  "n_wards": 80,
   "n_blindspots_total": 20,
   "n_blindspots_in_top": 20,
   "n_recidivists": 2352,
   "evening_gap_pct": 0.9,
   "morning_peak_hour": 10,
-  "capacity_exposure_vph": 445400,
-  "debiased_vs_naive_overlap": 0.06
+  "capacity_exposure_vph": 445700,
+  "debiased_vs_naive_overlap": 0.06,
+  "cis_class_counts": {
+    "Low": 4897,
+    "Medium": 387,
+    "High": 17
+  }
 }

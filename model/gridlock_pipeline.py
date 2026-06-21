@@ -510,6 +510,194 @@ def recidivists(df, min_hits=6, top=200):
 recid = recidivists(df)
 
 # %% [markdown]
+# ## 10b. Congestion Impact Score (CIS) — explainable 0–100 score + class
+#
+# A composite of four subscores, each stored as its weighted point contribution
+# so the explanation needs no extra computation:
+#
+# `CIS = 100 × (0.30·VLS + 0.20·COS + 0.35·ECS + 0.15·RPS)`
+#
+# Adapted to this dataset's realities:
+# * **VLS** uses the **debiased latent rate** (× mean violation severity), *not*
+#   raw counts — otherwise CIS would re-inherit the patrol bias the model removes.
+# * **Step-1 `duration_factor` is dropped**: `closed_datetime` is 100% NULL, so
+#   dwell time is unknowable. `violation_weight = vehicle_weight × offence_weight`.
+# * **ECS** has no live speed feed in batch (and its 8-week baseline can't be
+#   backfilled), so it uses an OSM demand×capacity proxy flagged `low_confidence`.
+#   The `ECSProvider` interface lets a live Mappls Flow feed drop in unchanged.
+# * **COS** uses OSM lane width; "concurrent count" ≈ a busy-hour count proxy.
+
+# %%
+# ── weight tables (editable) ──
+VEHICLE_WEIGHT = {"TWO_WHEELER": 0.4, "AUTO": 0.7, "CAR": 1.0, "MAXI": 1.3, "LGV": 1.3, "HEAVY": 2.5}
+VEHICLE_WIDTH  = {"TWO_WHEELER": 0.8, "AUTO": 1.4, "CAR": 1.8, "MAXI": 2.0, "LGV": 2.2, "HEAVY": 2.5}  # metres
+# offence severity by code (defaults to 1.0); higher = more congestion/safety impact
+OFFENCE_WEIGHT = {113: 1.0, 112: 1.0, 107: 1.3, 104: 1.5, 116: 1.2, 105: 1.2, 111: 1.1, 109: 1.1}
+CIS_WEIGHTS    = {"VLS": 0.30, "COS": 0.20, "ECS": 0.35, "RPS": 0.15}
+LANE_WIDTH_M   = 3.5
+
+def _vehicle_bucket(vt):
+    vt = str(vt).upper()
+    if any(k in vt for k in ("SCOOTER", "CYCLE", "MOPED")): return "TWO_WHEELER"
+    if "AUTO" in vt: return "AUTO"
+    if "MAXI" in vt or "VAN" in vt: return "MAXI"
+    if any(k in vt for k in ("BUS", "TRUCK", "TANKER")): return "HEAVY"
+    if "LGV" in vt or "TEMPO" in vt or "GOODS" in vt: return "LGV"
+    return "CAR"
+
+def offence_weight(codes):
+    try:
+        cs = json.loads(codes) if isinstance(codes, str) else [codes]
+        return max((OFFENCE_WEIGHT.get(int(c), 1.0) for c in cs), default=1.0)  # max if multiple
+    except Exception:
+        return 1.0
+
+def cis_cell_inputs(df):
+    """Per-hotspot aggregates needed by CIS (severity, vehicle width, concurrency, recurrence)."""
+    d = df.copy()
+    d["vbucket"]   = d["vehicle_type"].map(_vehicle_bucket)
+    d["vweight"]   = d["vbucket"].map(VEHICLE_WEIGHT)
+    d["vwidth"]    = d["vbucket"].map(VEHICLE_WIDTH)
+    d["oweight"]   = d["offence_code"].map(offence_weight)
+    d["vio_w"]     = d["vweight"] * d["oweight"]                 # violation_weight (no duration_factor)
+    ref = pd.to_datetime(d["date"]).max()                        # dataset "now"
+    cutoff = ref - pd.Timedelta(days=30)
+    # busy-hour concurrent proxy: 75th pct of per-(date,hour) counts at the cell
+    per_hour = d.groupby(["h3", "date", "hour"]).size().reset_index(name="c")
+    concurrent = per_hour.groupby("h3")["c"].quantile(0.75).rename("concurrent")
+    recent = d[pd.to_datetime(d["date"]) >= cutoff]
+    recur = (recent.groupby("h3")["date"].nunique() / 30.0).clip(upper=1.0).rename("recurrence")
+    agg = d.groupby("h3").agg(mean_vio_w=("vio_w", "mean"), avg_vwidth=("vwidth", "mean")).join(concurrent).join(recur)
+    # dominant vehicle types for the explanation string
+    topveh = d.groupby("h3")["vehicle_type"].agg(lambda s: ", ".join(s.value_counts().index[:2]))
+    agg["top_vehicles"] = topveh
+    return agg.fillna({"recurrence": 0.0, "concurrent": 0.0})
+
+class ECSProvider:
+    """Excess-congestion provider. Default proxy (no live feed) flags low_confidence.
+    Swap in a live source by passing flow_fn(lat,lng) -> (current_speed, free_flow_speed)."""
+    def __init__(self, flow_fn=None, baseline_ratio=0.0, cache=None):
+        self.flow_fn, self.baseline, self.cache = flow_fn, baseline_ratio, (cache or {})
+
+    def ecs(self, cell_id, lat, lng, proxy_value):
+        if self.flow_fn is None:
+            return float(min(max(proxy_value, 0.0), 1.0)), True   # proxy, low_confidence
+        try:
+            cur, free = self.flow_fn(lat, lng)
+            if free and free > 0:
+                live_ratio = 1 - (cur / free)
+                ecs = min(max(0.0, live_ratio - self.baseline) / 0.5, 1.0)
+                self.cache[cell_id] = ecs
+                return float(ecs), False
+        except Exception:
+            pass
+        if cell_id in self.cache:                                  # API timeout -> reuse cache
+            return float(self.cache[cell_id]), True
+        return float(min(max(proxy_value, 0.0), 1.0)), True
+
+def classify(cis):
+    return "Critical" if cis >= 75 else "High" if cis >= 50 else "Medium" if cis >= 25 else "Low"
+
+def build_cis(cells, df, ecs_provider=None, window_iso=None):
+    ecs_provider = ecs_provider or ECSProvider()
+    inp = cis_cell_inputs(df)
+    c = cells.join(inp, on="h3")
+    c["recurrence"] = c["recurrence"].fillna(0.0)
+    c["concurrent"] = c["concurrent"].fillna(0.0)
+    c["mean_vio_w"] = c["mean_vio_w"].fillna(1.0)
+    c["avg_vwidth"] = c["avg_vwidth"].fillna(1.8)
+
+    # VLS — debiased latent rate scaled by mean severity, then min-max across hotspots
+    vls_raw = c["latent_rate"] * c["mean_vio_w"]
+    c["VLS"] = (vls_raw / vls_raw.max()) if vls_raw.max() > 0 else 0.0
+    # COS — fraction of carriageway blocked by parked vehicles
+    road_width = np.maximum(c["n_lanes"], 1) * LANE_WIDTH_M
+    c["COS"] = ((c["avg_vwidth"] * c["concurrent"]) / road_width).clip(0, 1)
+    # RPS — recurrence over trailing 30 days
+    c["RPS"] = c["recurrence"].clip(0, 1)
+    # ECS — proxy (demand × capacity) unless a live flow feed is provided
+    proxy = (c["latent_norm"] * (0.4 + c["road_weight"])).clip(0, 1)
+    ecs_vals, low_conf = [], []
+    for idx, h3id, lat, lng, pv in zip(c.index, c["h3"], c["lat"], c["lng"], proxy):
+        e, lc = ecs_provider.ecs(h3id, lat, lng, float(pv))
+        ecs_vals.append(e); low_conf.append(lc)
+    c["ECS"] = ecs_vals
+    c["low_confidence"] = low_conf
+    # composite + stored weighted components (the explainability values)
+    c["pts_VLS"] = 100 * CIS_WEIGHTS["VLS"] * c["VLS"]
+    c["pts_COS"] = 100 * CIS_WEIGHTS["COS"] * c["COS"]
+    c["pts_ECS"] = 100 * CIS_WEIGHTS["ECS"] * c["ECS"]
+    c["pts_RPS"] = 100 * CIS_WEIGHTS["RPS"] * c["RPS"]
+    c["cis"] = (c["pts_VLS"] + c["pts_COS"] + c["pts_ECS"] + c["pts_RPS"]).round(1)
+    c["cis_class"] = c["cis"].map(classify)
+    c["confidence"] = np.where(c["low_confidence"], 0.65, 0.9)
+    c["window_start"] = window_iso or (pd.to_datetime(df["date"]).max().strftime("%Y-%m-%dT10:00:00"))
+    return c
+
+def cis_explanation(r):
+    comps = [
+        ("Excess congestion", r["pts_ECS"],
+         f"live-traffic proxy, road near capacity" if r["low_confidence"]
+         else f"live speed vs baseline"),
+        ("Carriageway obstruction", r["pts_COS"],
+         f"~{int(round(r['avg_vwidth']*r['concurrent']/LANE_WIDTH_M))} of {int(max(r['n_lanes'],1))} lanes blocked"),
+        ("Violation load", r["pts_VLS"],
+         f"debiased load, mostly {r.get('top_vehicles','mixed')}"),
+        ("Recurrence", r["pts_RPS"], f"{int(round(r['recurrence']*30))} of last 30 days"),
+    ]
+    comps.sort(key=lambda x: x[1], reverse=True)
+    return [f"{name} +{pts:.1f} pts ({reason})" for name, pts, reason in comps if pts > 0]
+
+cells = build_cis(cells, df)
+print("CIS class distribution:", cells["cis_class"].value_counts().to_dict())
+print("CIS range:", round(cells["cis"].min(), 1), "..", round(cells["cis"].max(), 1),
+      "| low_confidence:", int(cells["low_confidence"].sum()), "/", len(cells))
+
+# %% [markdown]
+# ## 10c. Phase-2 classifier — swappable interface (stub)
+#
+# Phase 1 (above) is the rule-based classifier that ships now. Phase 2 trains a
+# calibrated multi-class model once ≥3 months of **measured-delay outcomes** exist
+# (Mappls historical travel time, retrospectively binned into the 4 classes) — we
+# don't have those labels yet, so this is a stub that conforms to the same
+# `(class, confidence, explanation)` contract and currently delegates to Phase 1.
+# Swap `USE_PHASE2 = True` once `model.txt` exists; the output contract is unchanged.
+
+# %%
+USE_PHASE2 = False
+
+class Phase2Classifier:
+    """Interface for the trained classifier. Same output contract as Phase 1.
+    Train target: actual measured delay binned into Low/Medium/High/Critical.
+    Features: violation_count, vehicle-mix %, dwell, live_ratio, baseline_ratio,
+    road_width, hour, dow, event flag, distance-to-junction. Calibrate (isotonic/
+    Platt); attach top-3 SHAP features as the explanation."""
+    PHASE2_FEATURES = ["observed_count", "n_lanes", "road_throughput", "VLS", "COS",
+                       "ECS", "RPS", "poi_commercial", "poi_transit", "metro_500m"]
+
+    def __init__(self, model_path="cis_phase2_model.txt"):
+        self.model = None
+        if os.path.exists(model_path):
+            import lightgbm as lgb
+            self.model = lgb.Booster(model_file=model_path)
+
+    def available(self):
+        return self.model is not None
+
+    def predict(self, cells_row):
+        """Return (class:str, confidence:float, explanation:list[str])."""
+        if not self.available():
+            raise NotImplementedError("No trained Phase-2 model; falling back to Phase 1.")
+        # proba = self.model.predict(features); cls = bands[argmax]; shap top-3 -> explanation
+        raise NotImplementedError("Wire calibrated proba + SHAP here when labels exist.")
+
+_phase2 = Phase2Classifier()
+if USE_PHASE2 and _phase2.available():
+    print("Phase-2 classifier active.")  # would overwrite cis_class/confidence/explanation here
+else:
+    print("Phase-2 not active — shipping Phase-1 rule classifier (no outcome labels yet).")
+
+# %% [markdown]
 # ## 11. Export JSON for the React map
 # Schema is backward-compatible with the existing frontend, plus new fields
 # (`latent_rate`, `priority_score`, `blindspot`) and two new files.
@@ -539,6 +727,26 @@ def assign_wards(cells):
 
 cells = assign_wards(cells)
 
+def _cis_contract(r):
+    """The exact CIS output contract (per hotspot, per window)."""
+    return {
+        "hotspot_id": str(r["h3"]),
+        "window_start": str(r["window_start"]),
+        "cis": round(float(r["cis"]), 1),
+        "class": str(r["cis_class"]),
+        "confidence": round(float(r["confidence"]), 2),
+        "components": {
+            "violation_load": round(float(r["pts_VLS"]), 1),
+            "carriageway_obstruction": round(float(r["pts_COS"]), 1),
+            "excess_congestion": round(float(r["pts_ECS"]), 1),
+            "recurrence": round(float(r["pts_RPS"]), 1),
+        },
+        "explanation": cis_explanation(r),
+        "low_confidence": bool(r["low_confidence"]),
+        "lat": round(float(r["lat"]), 6), "lng": round(float(r["lng"]), 6),
+        "ward_name": str(r.get("ward_name", "")),
+    }
+
 def _to_hotspot(r, rank):
     return {
         "lat": round(float(r["lat"]), 6), "lng": round(float(r["lng"]), 6),
@@ -551,6 +759,17 @@ def _to_hotspot(r, rank):
         "blindspot": bool(r["blindspot"]),
         "locality": str(r.get("ward_name", "")),
         "ward_name": str(r.get("ward_name", "")), "ward_no": str(r.get("ward_no", "")),
+        # CIS engine
+        "cis": round(float(r["cis"]), 1), "cis_class": str(r["cis_class"]),
+        "cis_confidence": round(float(r["confidence"]), 2),
+        "cis_components": {
+            "violation_load": round(float(r["pts_VLS"]), 1),
+            "carriageway_obstruction": round(float(r["pts_COS"]), 1),
+            "excess_congestion": round(float(r["pts_ECS"]), 1),
+            "recurrence": round(float(r["pts_RPS"]), 1),
+        },
+        "cis_explanation": cis_explanation(r),
+        "low_confidence": bool(r["low_confidence"]),
     }
 
 def export(df, cells, recid, out_dir=OUT_DIR):
@@ -575,6 +794,11 @@ def export(df, cells, recid, out_dir=OUT_DIR):
     json.dump(blind, open(f"{out_dir}/blindspots.json", "w"), indent=2)
     json.dump(recid.to_dict("records"), open(f"{out_dir}/recidivists.json", "w"), indent=2)
 
+    # CIS engine: full per-hotspot contract for the API (all cells, ranked by CIS)
+    cis_sorted = cells.sort_values("cis", ascending=False)
+    cis_contract = [_cis_contract(r) for _, r in cis_sorted.iterrows()]
+    json.dump(cis_contract, open(f"{out_dir}/cis_hotspots.json", "w"), indent=2)
+
     # how different is the debiased map from the naive one? (Jaccard of cell sets)
     dset = {(h["lat"], h["lng"]) for h in hotspots}
     rset = {(h["lat"], h["lng"]) for h in raw_hotspots}
@@ -596,9 +820,10 @@ def export(df, cells, recid, out_dir=OUT_DIR):
         "capacity_exposure_vph": int(round(cap_exposure, -2)),  # veh/hr road capacity at priority hotspots
         "debiased_vs_naive_overlap": round(float(overlap), 2),
     }
+    summary["cis_class_counts"] = cells["cis_class"].value_counts().to_dict()
     json.dump(summary, open(f"{out_dir}/summary.json", "w"), indent=2)
     print(f"Wrote {len(heat)} heat pts, {len(hotspots)} hotspots ({len(blind)} blind), "
-          f"{len(raw_hotspots)} raw-baseline, {len(recid)} recidivists, summary -> {out_dir}/")
+          f"{len(raw_hotspots)} raw-baseline, {len(recid)} recidivists, {len(cis_contract)} CIS records, summary -> {out_dir}/")
     print(f"  Debiased vs naive top-{TOP_N_HOTSPOTS} overlap: {overlap:.0%} "
           f"(lower = model surfaces different cells than raw counts)")
 

@@ -799,6 +799,17 @@ def export(df, cells, recid, out_dir=OUT_DIR):
     cis_contract = [_cis_contract(r) for _, r in cis_sorted.iterrows()]
     json.dump(cis_contract, open(f"{out_dir}/cis_hotspots.json", "w"), indent=2)
 
+    # Phase-2 training matrix: raw features + Phase-1 class. `outcome_class` is a
+    # PLACEHOLDER (= Phase-1 class) until real measured-delay labels exist — the
+    # Phase-2 harness trains on whatever `outcome_class` holds (see cis_phase2_train.py).
+    feat_cols = ["observed_count", "latent_rate", "n_lanes", "road_throughput", "road_weight",
+                 "VLS", "COS", "ECS", "RPS", "poi_commercial", "poi_transit", "poi_institutional",
+                 "metro_500m", "recurrence", "concurrent", "avg_vwidth", "mean_vio_w"]
+    feat = cells[["h3"] + feat_cols].copy()
+    feat["cis"] = cells["cis"]; feat["cis_class"] = cells["cis_class"]
+    feat["outcome_class"] = cells["cis_class"]   # <-- replace with measured-delay bins for real Phase-2
+    feat.to_csv(f"{out_dir}/cis_features.csv", index=False)
+
     # how different is the debiased map from the naive one? (Jaccard of cell sets)
     dset = {(h["lat"], h["lng"]) for h in hotspots}
     rset = {(h["lat"], h["lng"]) for h in raw_hotspots}

@@ -1,0 +1,186 @@
+{
+  "n_hotspots": 5305,
+  "dimensions": [
+    "Economic activity (income proxy)",
+    "Social-centre proximity",
+    "Infrastructure"
+  ],
+  "correlations": {
+    "commercial_density": {
+      "dimension": "Economic activity",
+      "corr_with_latent": 0.204,
+      "corr_with_cis": 0.335
+    },
+    "transit_proximity": {
+      "dimension": "Social-centre proximity",
+      "corr_with_latent": 0.201,
+      "corr_with_cis": 0.301
+    },
+    "institutional_proximity": {
+      "dimension": "Social-centre proximity",
+      "corr_with_latent": 0.166,
+      "corr_with_cis": 0.286
+    },
+    "metro_500m": {
+      "dimension": "Social-centre proximity",
+      "corr_with_latent": 0.283,
+      "corr_with_cis": 0.38
+    },
+    "road_capacity": {
+      "dimension": "Infrastructure",
+      "corr_with_latent": 0.344,
+      "corr_with_cis": 0.452
+    },
+    "lanes": {
+      "dimension": "Infrastructure",
+      "corr_with_latent": 0.139,
+      "corr_with_cis": 0.164
+    }
+  },
+  "factor_contrasts": [
+    {
+      "factor": "transit hubs",
+      "cis_with": 13.9,
+      "cis_without": 5.3,
+      "ratio": 2.61
+    },
+    {
+      "factor": "schools/hospitals/worship",
+      "cis_with": 10.8,
+      "cis_without": 5.5,
+      "ratio": 1.99
+    },
+    {
+      "factor": "commercial centres",
+      "cis_with": 12.2,
+      "cis_without": 4.3,
+      "ratio": 2.84
+    },
+    {
+      "factor": "a metro station (\u2264500 m)",
+      "cis_with": 13.9,
+      "cis_without": 5.3,
+      "ratio": 2.61
+    }
+  ],
+  "top_wards_by_cis": [
+    {
+      "ward_name": "Rajaji Nagar",
+      "hotspots": 9,
+      "mean_cis": 27.08,
+      "commercial": 18.33,
+      "social_centres": 3.0,
+      "transit": 3.33,
+      "road_capacity": 1200.0
+    },
+    {
+      "ward_name": "Gandhinagar",
+      "hotspots": 18,
+      "mean_cis": 24.58,
+      "commercial": 9.17,
+      "social_centres": 1.56,
+      "transit": 7.56,
+      "road_capacity": 1400.0
+    },
+    {
+      "ward_name": "Dharmaraya Swamy Temple Ward",
+      "hotspots": 13,
+      "mean_cis": 23.64,
+      "commercial": 4.38,
+      "social_centres": 2.08,
+      "transit": 3.69,
+      "road_capacity": 1384.62
+    },
+    {
+      "ward_name": "Chickpete",
+      "hotspots": 7,
+      "mean_cis": 23.49,
+      "commercial": 20.43,
+      "social_centres": 3.29,
+      "transit": 0.57,
+      "road_capacity": 1071.43
+    },
+    {
+      "ward_name": "Shivanagara",
+      "hotspots": 7,
+      "mean_cis": 20.36,
+      "commercial": 6.14,
+      "social_centres": 1.86,
+      "transit": 3.29,
+      "road_capacity": 1200.0
+    },
+    {
+      "ward_name": "Jayamahal",
+      "hotspots": 12,
+      "mean_cis": 20.13,
+      "commercial": 1.0,
+      "social_centres": 1.67,
+      "transit": 1.83,
+      "road_capacity": 1091.67
+    },
+    {
+      "ward_name": "Vijayanagar",
+      "hotspots": 6,
+      "mean_cis": 19.28,
+      "commercial": 3.5,
+      "social_centres": 2.0,
+      "transit": 1.83,
+      "road_capacity": 1250.0
+    },
+    {
+      "ward_name": "Chamrajapet",
+      "hotspots": 13,
+      "mean_cis": 19.11,
+      "commercial": 6.31,
+      "social_centres": 2.62,
+      "transit": 1.23,
+      "road_capacity": 1415.38
+    },
+    {
+      "ward_name": "Gayithri Nagar",
+      "hotspots": 5,
+      "mean_cis": 19.1,
+      "commercial": 3.8,
+      "social_centres": 1.6,
+      "transit": 6.6,
+      "road_capacity": 1040.0
+    },
+    {
+      "ward_name": "Subramanya Nagar",
+      "hotspots": 8,
+      "mean_cis": 19.04,
+      "commercial": 15.88,
+      "social_centres": 1.0,
+      "transit": 1.12,
+      "road_capacity": 1075.0
+    },
+    {
+      "ward_name": "Nagapura",
+      "hotspots": 15,
+      "mean_cis": 18.41,
+      "commercial": 13.0,
+      "social_centres": 4.0,
+      "transit": 3.8,
+      "road_capacity": 1133.33
+    },
+    {
+      "ward_name": "Bharathi Nagar",
+      "hotspots": 7,
+      "mean_cis": 18.19,
+      "commercial": 2.86,
+      "social_centres": 2.29,
+      "transit": 0.43,
+      "road_capacity": 1157.14
+    }
+  ],
+  "insights": [
+    "Strongest correlate of debiased parking pressure: **road capacity** (Infrastructure), r=+0.34 with latent rate.",
+    "Hotspots near **transit hubs** average 2.61\u00d7 the CIS of those without (13.9 vs 5.3).",
+    "Hotspots near **schools/hospitals/worship** average 1.99\u00d7 the CIS of those without (10.8 vs 5.5).",
+    "Hotspots near **commercial centres** average 2.84\u00d7 the CIS of those without (12.2 vs 4.3).",
+    "Hotspots near **a metro station (\u2264500 m)** average 2.61\u00d7 the CIS of those without (13.9 vs 5.3).",
+    "Highest-impact ward **Rajaji Nagar** pairs high commercial density (18.3 POIs/cell) with mean CIS 27.1 \u2014 an economic-activity-driven hotspot cluster.",
+    "Income disparity: commercial-POI density is the current economic proxy. Supplying a VIIRS night-light raster (viirs_equity.py --viirs) adds a direct radiance-based income axis to test enforcement equity across wards."
+  ],
+  "radiance_note": "Pass a VIIRS raster to viirs_equity.py to add income-radiance to this analysis."
+}

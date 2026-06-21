@@ -113,6 +113,7 @@ model/      ML pipeline + Colab notebooks (the intelligence layer)
   baseline_store.py      rolling 8-week ECS baseline accumulator
   db.py / scheduler.py   SQLite persistence + interval recompute
   viirs_equity.py        ward-level equity analysis (VIIRS radiance optional)
+  socioeconomic_insights.py  the "why": income / social-centre / infra drivers
   make_notebook.py       regenerates .ipynb from any cell-marked .py
 api/        Thin read-only FastAPI service over the CIS scores (+ optional DB, live ECS)
 backend/    Legacy descriptive pipeline (Mappls live-traffic enrichment)
@@ -144,6 +145,32 @@ proxy described above.
 Serve it: `cd api && pip install -r requirements.txt && uvicorn main:app --port 8000`
 (`GET /hotspots/{id}` returns the contract; see `api/README.md`).
 
+## Why these hotspots? — socio-economic drivers
+A hotspot map answers *where*; this answers *why*. `socioeconomic_insights.py`
+joins each hotspot to proxies for three socio-economic dimensions and quantifies
+how each relates to parking pressure and congestion impact:
+
+- **Economic activity / income** — commercial-POI density (and VIIRS night-light
+  radiance when a raster is supplied via `viirs_equity.py`).
+- **Proximity to social centres** — institutional POIs (schools, hospitals,
+  places of worship), transit, and metro stations within 500 m.
+- **Infrastructure** — OSM road capacity (throughput × lanes).
+
+Findings on the full data (`insights.json`):
+
+| Hotspots near… | CIS vs. elsewhere |
+|---|---|
+| Commercial centres | **2.84×** (12.2 vs 4.3) |
+| Transit hubs / metro ≤500 m | **2.61×** (13.9 vs 5.3) |
+| Schools / hospitals / worship | **1.99×** (10.8 vs 5.5) |
+
+Strongest single correlate of congestion impact is **road capacity** (r = +0.45
+with CIS), then metro proximity (+0.38) and commercial density (+0.34) — i.e.
+illegal parking bites hardest where high-capacity roads meet dense activity. The
+**equity question** (are richer wards over- or under-enforced at equal road
+criticality?) plugs in directly once a VIIRS radiance layer is added — the ward
+join is already wired (`viirs_equity.py`).
+
 **Map features:** live traffic flow, raw violation heatmap, debiased/raw
 before-after toggle, priority hotspots (red→amber by score), blind spots
 (magenta ring), recidivist vehicles (blue), per-hotspot CIS breakdown, and a
@@ -170,6 +197,7 @@ the `.py`, then `python model/make_notebook.py` to regenerate the notebook.
 - [x] **VIIRS equity analysis** (`viirs_equity.py`) — spatial half runs now
 - [x] **Phase-2 training harness** (`cis_phase2_train.py`) — calibration + SHAP, ready to train
 - [x] **8-week ECS baseline accumulator** (`baseline_store.py`) + live-ECS wiring in the API
+- [x] **Socio-economic insight engine** (`socioeconomic_insights.py`) — why hotspots occur
 
 **Built, but waiting on an input only you can supply** (mechanism is in place; it
 activates the moment the input exists):

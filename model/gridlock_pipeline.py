@@ -640,7 +640,7 @@ def cis_explanation(r):
          f"live-traffic proxy, road near capacity" if r["low_confidence"]
          else f"live speed vs baseline"),
         ("Carriageway obstruction", r["pts_COS"],
-         f"~{int(round(r['avg_vwidth']*r['concurrent']/LANE_WIDTH_M))} of {int(max(r['n_lanes'],1))} lanes blocked"),
+         f"~{min(int(round(r['avg_vwidth']*r['concurrent']/LANE_WIDTH_M)), int(max(r['n_lanes'],1)))} of {int(max(r['n_lanes'],1))} lanes blocked"),
         ("Violation load", r["pts_VLS"],
          f"debiased load, mostly {r.get('top_vehicles','mixed')}"),
         ("Recurrence", r["pts_RPS"], f"{int(round(r['recurrence']*30))} of last 30 days"),

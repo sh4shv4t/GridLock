@@ -4,125 +4,125 @@
   "cover_radius_km": 0.4,
   "coverage_pct": 10.8,
   "hotspots_covered": 168,
-  "hotspots_total": 5301,
+  "hotspots_total": 5305,
   "units": [
     {
       "unit_id": 1,
       "n_stops": 6,
-      "route_km": 31.01,
+      "route_km": 39.55,
       "stops": [
         {
           "seq": 1,
           "hotspot_id": "8961892cc57ffff",
           "lat": 13.035039,
           "lng": 77.624459,
-          "cis": 68.4,
+          "cis": 60.5,
           "class": "High",
           "ward_name": "Nagavara"
         },
         {
           "seq": 2,
-          "hotspot_id": "8961892e9abffff",
-          "lat": 12.981646,
-          "lng": 77.607904,
-          "cis": 36.6,
+          "hotspot_id": "89618925a23ffff",
+          "lat": 12.963506,
+          "lng": 77.59857,
+          "cis": 34.8,
           "class": "Medium",
-          "ward_name": "Sampangiram Nagar"
+          "ward_name": "Shantala Nagar"
         },
         {
           "seq": 3,
-          "hotspot_id": "8960145b073ffff",
-          "lat": 12.998865,
-          "lng": 77.572085,
-          "cis": 32.1,
-          "class": "Medium",
-          "ward_name": "Dattatreya Temple"
-        },
-        {
-          "seq": 4,
-          "hotspot_id": "8960145b3b7ffff",
-          "lat": 12.997859,
-          "lng": 77.552214,
-          "cis": 38.7,
-          "class": "Medium",
-          "ward_name": "Rajaji Nagar"
-        },
-        {
-          "seq": 5,
           "hotspot_id": "89618925c6fffff",
           "lat": 12.935662,
           "lng": 77.612545,
-          "cis": 25.1,
-          "class": "Medium",
+          "cis": 24.4,
+          "class": "Low",
           "ward_name": "Adugodi"
         },
         {
-          "seq": 6,
+          "seq": 4,
+          "hotspot_id": "896189242d7ffff",
+          "lat": 12.907746,
+          "lng": 77.643373,
+          "cis": 31.5,
+          "class": "Medium",
+          "ward_name": "Agara"
+        },
+        {
+          "seq": 5,
           "hotspot_id": "8961892093bffff",
           "lat": 12.934281,
           "lng": 77.69381,
-          "cis": 21.6,
+          "cis": 21.7,
           "class": "Low",
           "ward_name": "Marathahalli"
+        },
+        {
+          "seq": 6,
+          "hotspot_id": "8960145b3b7ffff",
+          "lat": 12.997859,
+          "lng": 77.552214,
+          "cis": 37.4,
+          "class": "Medium",
+          "ward_name": "Rajaji Nagar"
         }
       ]
     },
     {
       "unit_id": 2,
       "n_stops": 6,
-      "route_km": 39.88,
+      "route_km": 46.62,
       "stops": [
         {
           "seq": 1,
           "hotspot_id": "89601690193ffff",
           "lat": 13.185608,
           "lng": 77.680642,
-          "cis": 45.0,
+          "cis": 45.1,
           "class": "Medium",
           "ward_name": "Outside BBMP"
         },
         {
           "seq": 2,
+          "hotspot_id": "8961892cb1bffff",
+          "lat": 13.061863,
+          "lng": 77.590595,
+          "cis": 16.0,
+          "class": "Low",
+          "ward_name": "Byatarayanapura"
+        },
+        {
+          "seq": 3,
           "hotspot_id": "8961892e947ffff",
           "lat": 12.992319,
           "lng": 77.6129,
-          "cis": 23.1,
+          "cis": 23.4,
           "class": "Low",
           "ward_name": "Pulikeshinagar"
         },
         {
-          "seq": 3,
-          "hotspot_id": "89618925a7bffff",
-          "lat": 12.972032,
-          "lng": 77.605936,
-          "cis": 38.0,
-          "class": "Medium",
-          "ward_name": "Shantala Nagar"
-        },
-        {
           "seq": 4,
-          "hotspot_id": "8961892598fffff",
-          "lat": 12.928288,
-          "lng": 77.582935,
-          "cis": 18.8,
-          "class": "Low",
-          "ward_name": "Byrasandra"
+          "hotspot_id": "8960145b427ffff",
+          "lat": 12.977468,
+          "lng": 77.578947,
+          "cis": 37.1,
+          "class": "Medium",
+          "ward_name": "Gandhinagar"
         },
         {
           "seq": 5,
-          "hotspot_id": "896189242d7ffff",
-          "lat": 12.907746,
-          "lng": 77.643373,
-          "cis": 30.6,
+          "hotspot_id": "8960145b1b7ffff",
+          "lat": 12.975433,
+          "lng": 77.547629,
+          "cis": 29.9,
           "class": "Medium",
-          "ward_name": "Agara"
+          "ward_name": "Dr. Raj Kumar Ward"
         },
         {
           "seq": 6,
           "hotspot_id": "896189240d3ffff",
           "lat": 12.886367,
           "lng": 77.641807,
-          "cis": 34.6,
+          "cis": 33.8,
           "class": "Medium",
           "ward_name": "HSR - Singasandra"
         }
@@ -131,60 +131,60 @@
     {
       "unit_id": 3,
       "n_stops": 6,
-      "route_km": 20.44,
+      "route_km": 21.73,
       "stops": [
         {
           "seq": 1,
           "hotspot_id": "8960145b59bffff",
           "lat": 12.964651,
           "lng": 77.576325,
-          "cis": 44.4,
+          "cis": 42.1,
           "class": "Medium",
           "ward_name": "Chamrajapet"
         },
         {
           "seq": 2,
-          "hotspot_id": "8960145b427ffff",
-          "lat": 12.977468,
-          "lng": 77.578947,
-          "cis": 37.3,
-          "class": "Medium",
-          "ward_name": "Gandhinagar"
+          "hotspot_id": "89618925b23ffff",
+          "lat": 12.956097,
+          "lng": 77.577385,
+          "cis": 22.7,
+          "class": "Low",
+          "ward_name": "Vishveshwara Puram"
         },
         {
           "seq": 3,
-          "hotspot_id": "89618925a23ffff",
-          "lat": 12.963506,
-          "lng": 77.59857,
-          "cis": 34.5,
-          "class": "Medium",
-          "ward_name": "Shantala Nagar"
+          "hotspot_id": "8961892e927ffff",
+          "lat": 12.984879,
+          "lng": 77.600134,
+          "cis": 15.9,
+          "class": "Low",
+          "ward_name": "Vasanth Nagar"
         },
         {
           "seq": 4,
-          "hotspot_id": "8960145b1b7ffff",
-          "lat": 12.975433,
-          "lng": 77.547629,
-          "cis": 30.5,
+          "hotspot_id": "8961892e9abffff",
+          "lat": 12.981646,
+          "lng": 77.607904,
+          "cis": 36.5,
           "class": "Medium",
-          "ward_name": "Dr. Raj Kumar Ward"
+          "ward_name": "Sampangiram Nagar"
         },
         {
           "seq": 5,
-          "hotspot_id": "8961892c9a7ffff",
-          "lat": 13.029846,
-          "lng": 77.575613,
-          "cis": 23.0,
-          "class": "Low",
-          "ward_name": "Radhakrishna Temple Ward"
+          "hotspot_id": "8960145b10bffff",
+          "lat": 12.989307,
+          "lng": 77.553274,
+          "cis": 27.2,
+          "class": "Medium",
+          "ward_name": "Shivanagara"
         },
         {
           "seq": 6,
-          "hotspot_id": "8961892cb1bffff",
-          "lat": 13.061863,
-          "lng": 77.590595,
-          "cis": 15.9,
-          "class": "Low",
+          "hotspot_id": "8961892cb4fffff",
+          "lat": 13.070415,
+          "lng": 77.589535,
+          "cis": 33.6,
+          "class": "Medium",
           "ward_name": "Byatarayanapura"
         }
       ]
@@ -192,61 +192,61 @@
     {
       "unit_id": 4,
       "n_stops": 6,
-      "route_km": 36.24,
+      "route_km": 15.29,
       "stops": [
         {
           "seq": 1,
           "hotspot_id": "89618925b7bffff",
           "lat": 12.964623,
           "lng": 77.584748,
-          "cis": 39.2,
+          "cis": 38.4,
           "class": "Medium",
           "ward_name": "Dharmaraya Swamy Temple Ward"
         },
         {
           "seq": 2,
-          "hotspot_id": "89618925b23ffff",
-          "lat": 12.956097,
-          "lng": 77.577385,
-          "cis": 22.8,
-          "class": "Low",
-          "ward_name": "Vishveshwara Puram"
+          "hotspot_id": "89618925a7bffff",
+          "lat": 12.972032,
+          "lng": 77.605936,
+          "cis": 34.9,
+          "class": "Medium",
+          "ward_name": "Shantala Nagar"
         },
         {
           "seq": 3,
-          "hotspot_id": "8960145b10bffff",
-          "lat": 12.989307,
-          "lng": 77.553274,
-          "cis": 27.4,
+          "hotspot_id": "8961892ed2fffff",
+          "lat": 12.973061,
+          "lng": 77.61739,
+          "cis": 26.7,
           "class": "Medium",
-          "ward_name": "Shivanagara"
+          "ward_name": "Ulsoor"
         },
         {
           "seq": 4,
+          "hotspot_id": "8960145b073ffff",
+          "lat": 12.998865,
+          "lng": 77.572085,
+          "cis": 31.9,
+          "class": "Medium",
+          "ward_name": "Dattatreya Temple"
+        },
+        {
+          "seq": 5,
           "hotspot_id": "8960145b33bffff",
           "lat": 13.009614,
           "lng": 77.551808,
-          "cis": 13.3,
+          "cis": 13.2,
           "class": "Low",
           "ward_name": "Nagapura"
         },
         {
-          "seq": 5,
-          "hotspot_id": "8961892cb4fffff",
-          "lat": 13.070415,
-          "lng": 77.589535,
-          "cis": 33.6,
-          "class": "Medium",
-          "ward_name": "Byatarayanapura"
-        },
-        {
           "seq": 6,
-          "hotspot_id": "89618924053ffff",
-          "lat": 12.893868,
-          "lng": 77.63772,
-          "cis": 37.2,
-          "class": "Medium",
-          "ward_name": "HSR - Singasandra"
+          "hotspot_id": "8961892c9a7ffff",
+          "lat": 13.029846,
+          "lng": 77.575613,
+          "cis": 22.4,
+          "class": "Low",
+          "ward_name": "Radhakrishna Temple Ward"
         }
       ]
     }

@@ -17,6 +17,15 @@ const scoreOf = (h) => (h.priority_score ?? h.impact_score ?? 0);
 const fmt = (n) => (n == null ? "—" : Number(n).toLocaleString());
 const CIS_COLOR = { Critical: "#B71C1C", High: "#E64A19", Medium: "#F9A825", Low: "#43A047" };
 
+// ── design tokens (sharp "telemetry" look — ink + signal-orange, mono metrics) ──
+const T = {
+  ink: "#0B1020", muted: "#6B7280", hair: "#E6E8EC", accent: "#FF5A1F",
+  panel: "rgba(255,255,255,0.96)",
+  display: '"Space Grotesk", system-ui, -apple-system, sans-serif',
+  mono: '"JetBrains Mono", ui-monospace, "SF Mono", monospace',
+};
+const eyebrow = { textTransform: "uppercase", fontSize: 9.5, letterSpacing: 1.4, fontWeight: 600, color: T.muted };
+
 function App() {
   const mapRef = useRef(null);
   const layers = useRef({ heatmap: null, circles: [], recids: [] });
@@ -25,6 +34,8 @@ function App() {
   const [rawHotspots, setRawHotspots] = useState([]);
   const [recids, setRecids] = useState([]);
   const [summary, setSummary] = useState(null);
+  const [insights, setInsights] = useState(null);
+  const [showWhy, setShowWhy] = useState(false);
   const [mode, setMode] = useState("debiased"); // "debiased" | "raw"
   const [mapReady, setMapReady] = useState(false);
   const [selected, setSelected] = useState(null);
@@ -40,6 +51,7 @@ function App() {
     fetch("/hotspots_raw.json").then((r) => (r.ok ? r.json() : [])).then(setRawHotspots).catch(() => {});
     fetch("/recidivists.json").then((r) => (r.ok ? r.json() : [])).then(setRecids).catch(() => {});
     fetch("/summary.json").then((r) => (r.ok ? r.json() : null)).then(setSummary).catch(() => {});
+    fetch("/insights.json").then((r) => (r.ok ? r.json() : null)).then(setInsights).catch(() => {});
   }, []);
 
   // the active hotspot set depends on the debiased/raw toggle (raw falls back to debiased if absent)
@@ -95,9 +107,10 @@ function App() {
     if (!map || !mapReady) return;
     clearLayers(map);
 
-    if (show.heatmap && heat.length) {
+    // Heatmap = the RAW patrol footprint. Auto-shown in Raw mode (tells the story:
+    // "counting → red everywhere"), hidden in Debiased unless explicitly toggled on.
+    if ((show.heatmap || mode === "raw") && heat.length) {
       try {
-        // toned-down intensity wash (it's the RAW patrol footprint — opt-in overlay)
         layers.current.heatmap = mapplsClassObject.HeatmapLayer({
           map, data: heat, opacity: 0.45, radius: 22, maxIntensity: 18, fitbounds: false,
           gradient: ["rgba(0,0,255,0)", "rgba(0,150,255,0.45)", "rgba(0,220,120,0.55)", "rgba(255,210,0,0.7)", "rgba(255,70,0,0.8)"],
@@ -106,22 +119,22 @@ function App() {
     }
 
     if (show.circles && visible.length) {
-      // raw mode colours by violation count (the patrol-route view); debiased by priority score
       const metric = (h) => (mode === "raw" ? (h.violation_count || 0) : scoreOf(h));
       const vals = hotspots.map(metric).sort((a, b) => a - b);
       const maxScore = vals[vals.length - 1] || 1;
       const q = (p) => vals[Math.floor(p * (vals.length - 1))] || 0;
-      const p80 = q(0.80), p55 = q(0.55);   // quantile bands -> real red/amber/yellow spread
-      const color = (s) => (s >= p80 ? "#C62828" : s >= p55 ? "#EF6C00" : "#F9A825");
+      const p80 = q(0.80), p55 = q(0.55);   // quantile bands -> red/amber/yellow spread (raw mode)
+      const byQuantile = (s) => (s >= p80 ? "#C62828" : s >= p55 ? "#EF6C00" : "#F9A825");
+      // Debiased mode: colour by CIS class (most green/amber, few red) — ties map to the score.
+      const color = (h) => (mode === "debiased" && h.cis_class ? CIS_COLOR[h.cis_class] : byQuantile(metric(h)));
       const radius = (s) => 130 + (s / maxScore) * 300;
       visible.forEach((h) => {
         const isBlind = h.blindspot && show.blindspots && mode === "debiased";
         try {
           const c = mapplsClassObject.Circle({
             map, center: { lat: h.lat, lng: h.lng }, radius: radius(metric(h)),
-            fillColor: color(metric(h)), fillOpacity: 0.3,
-            // blind spots get a bold magenta ring so they pop against the impact colours
-            strokeColor: isBlind ? "#8E24AA" : color(metric(h)),
+            fillColor: color(h), fillOpacity: 0.3,
+            strokeColor: isBlind ? "#8E24AA" : color(h),
             strokeOpacity: 0.9, strokeWeight: isBlind ? 4 : 1.5,
           });
           if (c && c.addListener) c.addListener("click", () => setSelected(h));
@@ -169,41 +182,49 @@ function App() {
     } else if (map && map.setZoom) { map.setZoom(12); map.setCenter([77.5946, 12.9716]); }
   }
 
-  const card = { background: "white", borderRadius: 8, boxShadow: "0 2px 10px rgba(0,0,0,0.15)", fontFamily: "system-ui, sans-serif" };
+  const card = { background: T.panel, borderRadius: 6, border: `1px solid ${T.hair}`,
+    boxShadow: "0 6px 24px rgba(11,16,32,0.12)", fontFamily: T.display,
+    backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)" };
 
   const kpi = (val, label, color) => (
-    <div style={{ textAlign: "center", padding: "0 12px" }}>
-      <div style={{ fontSize: 18, fontWeight: 800, color: color || "#1A237E", lineHeight: 1.1 }}>{val}</div>
-      <div style={{ fontSize: 10, color: "#666", textTransform: "uppercase", letterSpacing: 0.4 }}>{label}</div>
+    <div style={{ textAlign: "center", padding: "0 11px" }}>
+      <div style={{ fontFamily: T.mono, fontSize: 18, fontWeight: 700, color: color || T.ink, lineHeight: 1.05 }}>{val}</div>
+      <div style={{ ...eyebrow, marginTop: 2 }}>{label}</div>
     </div>
   );
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "100vh", fontFamily: "system-ui, sans-serif" }}>
+    <div style={{ position: "relative", width: "100%", height: "100vh", fontFamily: T.display, color: T.ink }}>
       {/* HEADLINE BANNER (top center) — quantified takeaway + before/after toggle */}
       <div style={{ ...card, position: "absolute", top: 12, left: "50%", transform: "translateX(-50%)",
-                    zIndex: 1000, padding: "8px 14px", display: "flex", alignItems: "center", gap: 6,
-                    maxWidth: "min(640px, calc(100vw - 620px))", flexWrap: "wrap", justifyContent: "center" }}>
-        <div style={{ fontWeight: 800, fontSize: 14, color: "#1A237E", paddingRight: 6 }}>GRIDLOCK</div>
+                    zIndex: 1000, padding: "9px 8px 9px 0", display: "flex", alignItems: "center", gap: 4,
+                    borderLeft: `3px solid ${T.accent}`,
+                    maxWidth: "min(680px, calc(100vw - 620px))", flexWrap: "wrap", justifyContent: "center" }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: T.ink, padding: "0 12px", letterSpacing: 0.5,
+                      display: "flex", alignItems: "center", gap: 6 }}>
+          <span style={{ width: 8, height: 8, background: T.accent, borderRadius: 2, display: "inline-block" }} />
+          GRIDLOCK
+        </div>
         {summary && <>
           {kpi(fmt(summary.total_violations), "violations")}
           {kpi(summary.n_blindspots_total, "blind spots", "#8E24AA")}
           {kpi(fmt(summary.n_recidivists), "recidivists", "#1565C0")}
           {kpi(summary.evening_gap_pct != null ? `${summary.evening_gap_pct}%` : "—", "tickets 3–10pm", "#C62828")}
         </>}
-        <div style={{ display: "flex", border: "1px solid #1A237E", borderRadius: 6, overflow: "hidden", marginLeft: 4 }}>
+        <div style={{ display: "flex", border: `1px solid ${T.ink}`, borderRadius: 5, overflow: "hidden", marginLeft: 6, marginRight: 4 }}>
           {[["debiased", "Debiased"], ["raw", "Raw counts"]].map(([m, l]) => (
             <button key={m} onClick={() => setMode(m)}
-              style={{ padding: "5px 9px", fontSize: 11, border: "none", cursor: "pointer",
-                       background: mode === m ? "#1A237E" : "white", color: mode === m ? "white" : "#1A237E",
-                       fontWeight: 600 }}>{l}</button>
+              style={{ padding: "5px 10px", fontSize: 11, border: "none", cursor: "pointer", fontFamily: T.display,
+                       background: mode === m ? T.ink : "transparent", color: mode === m ? "#fff" : T.ink,
+                       fontWeight: 600, letterSpacing: 0.3 }}>{l}</button>
           ))}
         </div>
       </div>
 
       {/* WARD SIDE PANEL (left) */}
-      <div style={{ ...card, position: "absolute", top: 12, left: 12, zIndex: 999, padding: "14px 16px", width: 280, maxHeight: "90vh", overflowY: "auto" }}>
-        <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 4 }}>Enforcement Priorities</div>
+      <div style={{ ...card, position: "absolute", top: 12, left: 12, zIndex: 999, padding: "14px 16px", width: 280, maxHeight: "90vh", overflowY: "auto", borderTop: `3px solid ${T.accent}` }}>
+        <div style={{ ...eyebrow, marginBottom: 3 }}>Bengaluru · Enforcement</div>
+        <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 6, letterSpacing: -0.2 }}>Priority Hotspots</div>
         <div style={{ fontSize: 11, marginBottom: 6, padding: "5px 8px", borderRadius: 5,
                       background: mode === "raw" ? "#FFF3E0" : "#E8F5E9",
                       color: mode === "raw" ? "#E65100" : "#2E7D32" }}>
@@ -216,9 +237,9 @@ function App() {
           {mode === "debiased" && blindCount > 0 && <> · <b style={{ color: "#8E24AA" }}>{blindCount} blind spots</b></>}
         </div>
         <button onClick={() => selectWard("ALL")}
-          style={{ width: "100%", marginBottom: 8, padding: "6px", border: "1px solid #1A237E",
-                   background: wardFilter === "ALL" ? "#1A237E" : "white", color: wardFilter === "ALL" ? "white" : "#1A237E",
-                   borderRadius: 6, cursor: "pointer", fontSize: 13 }}>
+          style={{ width: "100%", marginBottom: 8, padding: "7px", border: `1px solid ${T.ink}`, fontFamily: T.display,
+                   background: wardFilter === "ALL" ? T.ink : "transparent", color: wardFilter === "ALL" ? "white" : T.ink,
+                   borderRadius: 5, cursor: "pointer", fontSize: 12, fontWeight: 600, letterSpacing: 0.3 }}>
           Show all wards
         </button>
         {wards.map((w) => (
@@ -242,17 +263,49 @@ function App() {
 
       {/* LAYER TOGGLES (right) */}
       <div style={{ ...card, position: "absolute", top: 12, right: 12, zIndex: 999, padding: "12px 16px", fontSize: 13, width: 210 }}>
-        <strong style={{ display: "block", marginBottom: 8 }}>Layers</strong>
+        <div style={{ ...eyebrow, marginBottom: 8 }}>Layers</div>
         {[["traffic", "Live traffic flow"], ["heatmap", "Violation heatmap (raw)"], ["circles", "Priority hotspots"],
           ["blindspots", "Highlight blind spots"], ["recidivists", "Recidivist vehicles"]].map(([k, l]) => (
           <label key={k} style={{ display: "block", marginBottom: 6 }}>
             <input type="checkbox" checked={show[k]} onChange={() => setShow((s) => ({ ...s, [k]: !s[k] }))} /> {l}
           </label>
         ))}
-        <div style={{ marginTop: 10, paddingTop: 8, borderTop: "1px solid #eee", fontSize: 12, color: "#555" }}>
+        <div style={{ marginTop: 10, paddingTop: 8, borderTop: `1px solid ${T.hair}`, fontSize: 12, color: T.muted }}>
           <div><span style={{ color: "#C62828" }}>●</span> High &nbsp; <span style={{ color: "#EF6C00" }}>●</span> Med &nbsp; <span style={{ color: "#F9A825" }}>●</span> Low priority</div>
           <div style={{ marginTop: 4 }}><span style={{ color: "#8E24AA" }}>◆</span> Blind spot (high impact, low patrol) &nbsp; <span style={{ color: "#1565C0" }}>●</span> Recidivist</div>
         </div>
+
+        {/* WHY — socio-economic drivers (expandable) */}
+        {insights && insights.factor_contrasts && (
+          <div style={{ marginTop: 10, paddingTop: 8, borderTop: `1px solid ${T.hair}` }}>
+            <div onClick={() => setShowWhy((s) => !s)}
+                 style={{ ...eyebrow, cursor: "pointer", display: "flex", justifyContent: "space-between", color: T.accent }}>
+              <span>Why these hotspots?</span><span>{showWhy ? "−" : "+"}</span>
+            </div>
+            {showWhy && (
+              <div style={{ marginTop: 8 }}>
+                <div style={{ fontSize: 11, color: T.muted, marginBottom: 6 }}>CIS multiplier when a hotspot is near…</div>
+                {insights.factor_contrasts.slice(0, 4).map((f) => {
+                  const pct = Math.min((f.ratio / 3) * 100, 100);
+                  return (
+                    <div key={f.factor} style={{ marginBottom: 6 }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, marginBottom: 2 }}>
+                        <span style={{ color: T.ink }}>{f.factor}</span>
+                        <span style={{ fontFamily: T.mono, fontWeight: 700, color: T.accent }}>{f.ratio}×</span>
+                      </div>
+                      <div style={{ height: 5, background: T.hair, borderRadius: 3 }}>
+                        <div style={{ width: `${pct}%`, height: 5, background: T.accent, borderRadius: 3 }} />
+                      </div>
+                    </div>
+                  );
+                })}
+                <div style={{ fontSize: 10.5, color: T.muted, marginTop: 6, lineHeight: 1.4 }}>
+                  Strongest correlate: road capacity × dense activity. Income/equity axis adds with a VIIRS layer.
+                </div>
+              </div>
+            )}
+          </div>
+        )}
         {!mapReady && <div style={{ marginTop: 8, color: "#E65100", fontSize: 12 }}>⏳ map loading… (if stuck, token may be expired)</div>}
       </div>
 

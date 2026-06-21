@@ -1,0 +1,21 @@
+# Node / React
+node_modules/
+frontend/node_modules/
+build/
+frontend/build/
+.DS_Store
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Raw dataset (organizer-provided, large — not redistributed)
+*.csv
+backend/*.csv
+
+# Secrets / local env
+.env
+*.local

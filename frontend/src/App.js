@@ -18,6 +18,8 @@ const MAPPLS_TOKEN = process.env.REACT_APP_MAPPLS_TOKEN;
 const scoreOf = (h) => (h.priority_score ?? h.impact_score ?? 0);
 const fmt = (n) => (n == null ? "—" : Number(n).toLocaleString());
 const CIS_COLOR = { Critical: "#B71C1C", High: "#E64A19", Medium: "#F9A825", Low: "#43A047" };
+// keyless Google Street View deep link at the hotspot's coords (Google auto-aims)
+const streetViewUrl = (h) => `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${h.lat},${h.lng}`;
 
 // ── Role-based views ────────────────────────────────────────────────────────
 // "local" = personalised, area-scoped, sparse (default — what a resident/officer
@@ -607,6 +609,16 @@ function App() {
         <div>Congestion impact: <b>{selected.congestion_ratio}×</b> <span style={{ color: "#888" }}>(road capacity)</span></div>
         <div>Priority score: <b>{scoreOf(selected).toFixed(3)}</b></div>
       </div>
+
+      {/* Street View — keyless Google deep link; hidden only if pipeline marked it false */}
+      {selected.street_view !== false && selected.lat != null && selected.lng != null && (
+        <button onClick={() => window.open(streetViewUrl(selected), "_blank", "noopener")}
+          style={{ width: "100%", marginTop: 10, padding: "8px", border: `1px solid ${T.ink}`, borderRadius: 5,
+                   background: T.ink, color: "#fff", fontFamily: T.display, fontSize: 12.5, fontWeight: 600,
+                   letterSpacing: 0.3, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
+          <span>📍</span> Street View
+        </button>
+      )}
 
       {/* CONGESTION IMPACT SCORE (CIS) */}
       {selected.cis != null && (

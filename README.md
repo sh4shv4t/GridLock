@@ -7,6 +7,7 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-read--only-009688?logo=fastapi&logoColor=white)
 ![Mappls](https://img.shields.io/badge/Maps-Mappls%20SDK-EE2737)
 ![OpenStreetMap](https://img.shields.io/badge/features-OpenStreetMap-7EBC6F?logo=openstreetmap&logoColor=white)
+[![Demo walkthrough](https://img.shields.io/badge/%E2%96%B6%20Demo-walkthrough-FF5A1F?logo=loom&logoColor=white)](https://www.loom.com/share/12ae4597fb9f46b9b7469817b28bc647)
 
 > Detects illegal-parking **hotspots** in Bengaluru, estimates the **latent
 > violation rate** (debiased for patrol coverage), scores each location's
@@ -14,7 +15,9 @@
 > flags **enforcement blind spots** — so patrols target where it matters, not
 > just where they already go.
 
-🎥 **[Watch the demo walkthrough](https://www.loom.com/share/12ae4597fb9f46b9b7469817b28bc647)**
+## 🎥 Demo video
+
+**[▶ Watch the full demo walkthrough](https://www.loom.com/share/12ae4597fb9f46b9b7469817b28bc647)** — a guided tour of the debiased map, enforcement blind spots, and the Congestion Impact Score.
 
 ---
 

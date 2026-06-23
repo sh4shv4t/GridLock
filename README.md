@@ -25,10 +25,15 @@ need the frontend to see the demo.
 # 1. Map (required)
 cd frontend
 npm install                       # first time only
+cp .env.example .env.local        # then paste your Mappls token into .env.local
 npm start                         # opens http://localhost:3000
 ```
-> Paste a fresh **Mappls token** into `frontend/src/App.js` (`MAPPLS_TOKEN`) or
-> the map loads blank. Tokens expire ~24h — regenerate at apis.mappls.com.
+> The **Mappls token** is read from the environment, not the source. Put
+> `REACT_APP_MAPPLS_TOKEN=...` in `frontend/.env.local` (gitignored) for local dev,
+> or set it in your host's env vars (e.g. Vercel → Settings → Environment Variables).
+> Without it the map loads blank. Tokens expire ~24h — regenerate at apis.mappls.com.
+> (CRA only reads `REACT_APP_*` vars at **build/start** time, so restart `npm start`
+> after editing `.env.local`.)
 
 ```bash
 # 2. CIS API (optional — serves the score contract per hotspot)
@@ -113,7 +118,8 @@ model/      ML pipeline + Colab notebooks (the intelligence layer)
   baseline_store.py      rolling 8-week ECS baseline accumulator
   db.py / scheduler.py   SQLite persistence + interval recompute
   viirs_equity.py        ward-level equity analysis (VIIRS radiance optional)
-  socioeconomic_insights.py  the "why": income / social-centre / infra drivers
+  socioeconomic_insights.py  the "why" (aggregate): income / social-centre / infra drivers
+  hotspot_interpreter.py the "why" (per hotspot): LLM reason from place/infra/income evidence
   make_notebook.py       regenerates .ipynb from any cell-marked .py
 api/        Thin read-only FastAPI service over the CIS scores (+ optional DB, live ECS)
 backend/    Legacy descriptive pipeline (Mappls live-traffic enrichment)
@@ -171,6 +177,32 @@ illegal parking bites hardest where high-capacity roads meet dense activity. The
 criticality?) plugs in directly once a VIIRS radiance layer is added — the ward
 join is already wired (`viirs_equity.py`).
 
+### Per-hotspot interpretability (the "why" for *this* corner)
+`socioeconomic_insights.py` explains the *aggregate* pattern; `hotspot_interpreter.py`
+explains **one hotspot at a time**. For each high-CIS cell it assembles a structured
+evidence profile and turns it into a plain-language hypothesis:
+
+- **Place character** — named OSM POIs within 300 m (temple, mall, market, school,
+  hospital, metro, office) and a dominant "primary type".
+- **Infrastructure** — road class / lanes / surface / street-lighting, plus the
+  demand-vs-capacity ratio (is the road under-provisioned for the activity around it?).
+- **Income proxy** — commercial-POI density percentile, blended with VIIRS ward
+  radiance when a raster is supplied. Flagged a *proxy* — the data has no per-capita income.
+
+The reason text is synthesised by **Gemini** (set `GEMINI_API_KEY`), grounded only in
+that evidence. With no key — or on any API error — it falls back to a deterministic
+rule-based explanation, so it runs free and offline like the rest of the pipeline (same
+swappable pattern as `ECSProvider`). Output: `hotspot_interpretations.json`.
+
+```bash
+cd model
+export GEMINI_API_KEY=...            # optional — omit for rule-based reasons
+python hotspot_interpreter.py --limit 50          # add --no-llm to force rule-based
+```
+Example output (real data, Jayamahal): *"CIS 66.8 (High) likely because it draws
+concentrated demand from a place of worship (Jayamahal Shani Mandir) nearby, and a narrow
+~2-lane carriageway…"*
+
 **Map features:** live traffic flow, raw violation heatmap, debiased/raw
 before-after toggle, priority hotspots (red→amber by score), blind spots
 (magenta ring), recidivist vehicles (blue), per-hotspot CIS breakdown, and a
@@ -197,7 +229,8 @@ the `.py`, then `python model/make_notebook.py` to regenerate the notebook.
 - [x] **VIIRS equity analysis** (`viirs_equity.py`) — spatial half runs now
 - [x] **Phase-2 training harness** (`cis_phase2_train.py`) — calibration + SHAP, ready to train
 - [x] **8-week ECS baseline accumulator** (`baseline_store.py`) + live-ECS wiring in the API
-- [x] **Socio-economic insight engine** (`socioeconomic_insights.py`) — why hotspots occur
+- [x] **Socio-economic insight engine** (`socioeconomic_insights.py`) — why hotspots occur (aggregate)
+- [x] **Per-hotspot interpreter** (`hotspot_interpreter.py`) — Gemini reason per hotspot, rule-based fallback
 
 **Built, but waiting on an input only you can supply** (mechanism is in place; it
 activates the moment the input exists):

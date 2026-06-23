@@ -17,6 +17,24 @@ const scoreOf = (h) => (h.priority_score ?? h.impact_score ?? 0);
 const fmt = (n) => (n == null ? "—" : Number(n).toLocaleString());
 const CIS_COLOR = { Critical: "#B71C1C", High: "#E64A19", Medium: "#F9A825", Low: "#43A047" };
 
+// ── Role-based views ────────────────────────────────────────────────────────
+// "local" = personalised, area-scoped, sparse (default — what a resident/officer
+// in one area needs). "admin" = the full citywide console. Switched by ?view=,
+// shareable by URL. Local view never shows vehicle plates (privacy by default).
+const VIEWS = ["local", "admin"];
+const DEFAULT_AREA = "Jakkasandra"; // central ward near BTM/Koramangala; ?area= overrides
+const LOCAL_LAYERS = { traffic: false, heatmap: false, circles: true, blindspots: true, recidivists: false };
+const readParams = () => {
+  const p = new URLSearchParams(window.location.search);
+  const v = (p.get("view") || "local").toLowerCase();
+  return { view: VIEWS.includes(v) ? v : "local", area: p.get("area") || DEFAULT_AREA };
+};
+const writeParam = (k, val) => {
+  const p = new URLSearchParams(window.location.search);
+  p.set(k, val);
+  window.history.replaceState(null, "", `?${p.toString()}`);
+};
+
 // ── design tokens (sharp "telemetry" look — ink + signal-orange, mono metrics) ──
 const T = {
   ink: "#0B1020", muted: "#6B7280", hair: "#E6E8EC", accent: "#FF5A1F",
@@ -36,10 +54,13 @@ function App() {
   const [summary, setSummary] = useState(null);
   const [insights, setInsights] = useState(null);
   const [showWhy, setShowWhy] = useState(false);
-  const [mode, setMode] = useState("debiased"); // "debiased" | "raw"
+  const [mode, setMode] = useState("debiased"); // "debiased" | "raw" (admin only)
   const [mapReady, setMapReady] = useState(false);
   const [selected, setSelected] = useState(null);
   const [wardFilter, setWardFilter] = useState("ALL");
+  const initParams = readParams();
+  const [view, setView] = useState(initParams.view);   // "local" | "admin"
+  const [area, setArea] = useState(initParams.area);    // personalised scope for local view
   const [show, setShow] = useState({
     traffic: false, heatmap: false, circles: true, blindspots: true, recidivists: false,
   });
@@ -54,10 +75,17 @@ function App() {
     fetch("/insights.json").then((r) => (r.ok ? r.json() : null)).then(setInsights).catch(() => {});
   }, []);
 
+  // local view is intentionally sparse: fixed minimal layers, debiased-only,
+  // scoped to one area. We DERIVE these (never clobber admin's own state).
+  const isLocal = view === "local";
+  const effShow = isLocal ? LOCAL_LAYERS : show;
+  const effMode = isLocal ? "debiased" : mode;          // no raw toggle in local
+  const scope = isLocal ? area : wardFilter;            // local locks scope to the area
+
   // the active hotspot set depends on the debiased/raw toggle (raw falls back to debiased if absent)
   const hotspots = useMemo(
-    () => (mode === "raw" && rawHotspots.length ? rawHotspots : debiased),
-    [mode, rawHotspots, debiased]
+    () => (effMode === "raw" && rawHotspots.length ? rawHotspots : debiased),
+    [effMode, rawHotspots, debiased]
   );
 
   // group hotspots by ward for the side panel, ranked by priority
@@ -78,9 +106,48 @@ function App() {
   }, [hotspots]);
 
   const visible = useMemo(
-    () => (wardFilter === "ALL" ? hotspots : hotspots.filter((h) => (h.ward_name || "Unknown") === wardFilter)),
-    [hotspots, wardFilter]
+    () => (scope === "ALL" ? hotspots : hotspots.filter((h) => (h.ward_name || "Unknown") === scope)),
+    [hotspots, scope]
   );
+
+  // wards present in the data — powers the local-view area picker
+  const areaOptions = useMemo(
+    () => Array.from(new Set(hotspots.map((h) => h.ward_name || "Unknown"))).filter((w) => w && w !== "Unknown").sort(),
+    [hotspots]
+  );
+
+  // the local "in your area" list — top hotspots in the chosen area, by priority
+  const localList = useMemo(
+    () => [...visible].sort((a, b) => scoreOf(b) - scoreOf(a)),
+    [visible]
+  );
+  const localBlind = useMemo(() => visible.filter((h) => h.blindspot).length, [visible]);
+
+  // wards ranked by mean CIS — lets the local view say "your area ranks #N"
+  const wardRanking = useMemo(() => {
+    const m = {};
+    hotspots.forEach((h) => { const w = h.ward_name || "Unknown"; (m[w] = m[w] || []).push(h.cis || 0); });
+    return Object.entries(m)
+      .map(([w, arr]) => ({ ward: w, mean: arr.reduce((a, b) => a + b, 0) / arr.length }))
+      .sort((a, b) => b.mean - a.mean);
+  }, [hotspots]);
+
+  // up to 3 short, personal headlines for "News in your area" — all from shipped JSON
+  const localNews = useMemo(() => {
+    const items = [];
+    if (localBlind > 0) items.push({ icon: "◆", color: "#8E24AA",
+      text: `${localBlind} enforcement blind spot${localBlind > 1 ? "s" : ""} nearby — high impact, rarely patrolled.` });
+    const idx = wardRanking.findIndex((r) => r.ward === area);
+    if (idx >= 0) items.push({ icon: "▲", color: T.accent,
+      text: `Ranks #${idx + 1} of ${wardRanking.length} areas by congestion impact.` });
+    const worst = localList[0];
+    if (worst && worst.cis_explanation && worst.cis_explanation.length) {
+      const driver = worst.cis_explanation[0].split(" +")[0].toLowerCase();
+      items.push({ icon: "●", color: CIS_COLOR[worst.cis_class] || T.ink,
+        text: `Worst spot: ${worst.cis_class} impact — driven by ${driver}.` });
+    }
+    return items.slice(0, 3);
+  }, [localBlind, wardRanking, area, localList]);
 
   const blindCount = useMemo(() => hotspots.filter((h) => h.blindspot).length, [hotspots]);
 
@@ -109,7 +176,7 @@ function App() {
 
     // Heatmap = the RAW patrol footprint. Auto-shown in Raw mode (tells the story:
     // "counting → red everywhere"), hidden in Debiased unless explicitly toggled on.
-    if ((show.heatmap || mode === "raw") && heat.length) {
+    if ((effShow.heatmap || effMode === "raw") && heat.length) {
       try {
         layers.current.heatmap = mapplsClassObject.HeatmapLayer({
           map, data: heat, opacity: 0.45, radius: 22, maxIntensity: 18, fitbounds: false,
@@ -118,18 +185,18 @@ function App() {
       } catch (e) { console.log("heatmap error", e); }
     }
 
-    if (show.circles && visible.length) {
-      const metric = (h) => (mode === "raw" ? (h.violation_count || 0) : scoreOf(h));
+    if (effShow.circles && visible.length) {
+      const metric = (h) => (effMode === "raw" ? (h.violation_count || 0) : scoreOf(h));
       const vals = hotspots.map(metric).sort((a, b) => a - b);
       const maxScore = vals[vals.length - 1] || 1;
       const q = (p) => vals[Math.floor(p * (vals.length - 1))] || 0;
       const p80 = q(0.80), p55 = q(0.55);   // quantile bands -> red/amber/yellow spread (raw mode)
       const byQuantile = (s) => (s >= p80 ? "#C62828" : s >= p55 ? "#EF6C00" : "#F9A825");
       // Debiased mode: colour by CIS class (most green/amber, few red) — ties map to the score.
-      const color = (h) => (mode === "debiased" && h.cis_class ? CIS_COLOR[h.cis_class] : byQuantile(metric(h)));
+      const color = (h) => (effMode === "debiased" && h.cis_class ? CIS_COLOR[h.cis_class] : byQuantile(metric(h)));
       const radius = (s) => 130 + (s / maxScore) * 300;
       visible.forEach((h) => {
-        const isBlind = h.blindspot && show.blindspots && mode === "debiased";
+        const isBlind = h.blindspot && effShow.blindspots && effMode === "debiased";
         try {
           const c = mapplsClassObject.Circle({
             map, center: { lat: h.lat, lng: h.lng }, radius: radius(metric(h)),
@@ -143,7 +210,7 @@ function App() {
       });
     }
 
-    if (show.recidivists && recids.length) {
+    if (effShow.recidivists && recids.length) {
       recids.slice(0, 120).forEach((v) => {
         try {
           const c = mapplsClassObject.Circle({
@@ -165,7 +232,7 @@ function App() {
     };
     repaint(); setTimeout(repaint, 200); setTimeout(repaint, 600);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [heat, hotspots, recids, visible, mapReady, show, mode]);
+  }, [heat, hotspots, recids, visible, mapReady, effShow, effMode, view, area]);
 
   function clearLayers(map) {
     if (layers.current.heatmap) { try { mapplsClassObject.removeLayer({ map, layer: layers.current.heatmap }); } catch (e) {} layers.current.heatmap = null; }
@@ -173,14 +240,38 @@ function App() {
     layers.current.circles = []; layers.current.recids = [];
   }
 
+  function centerOnArea(name) {
+    const map = mapRef.current;
+    if (!map || !map.setCenter) return;
+    const list = hotspots.filter((h) => (h.ward_name || "Unknown") === name);
+    if (list.length) { map.setCenter([list[0].lng, list[0].lat]); if (map.setZoom) map.setZoom(14); }
+  }
+  function cityView() {
+    const map = mapRef.current;
+    if (map && map.setZoom) { map.setZoom(12); map.setCenter([77.5946, 12.9716]); }
+  }
+
   function selectWard(name) {
     setWardFilter(name);
-    const map = mapRef.current;
-    if (map && name !== "ALL") {
-      const list = hotspots.filter((h) => (h.ward_name || "Unknown") === name);
-      if (list.length && map.setCenter) { map.setCenter([list[0].lng, list[0].lat]); if (map.setZoom) map.setZoom(14); }
-    } else if (map && map.setZoom) { map.setZoom(12); map.setCenter([77.5946, 12.9716]); }
+    if (name !== "ALL") centerOnArea(name); else cityView();
   }
+
+  // local view: pick the area you're in (e.g. "I'm in BTM") — recenters + rescopes
+  function focusArea(name) {
+    setArea(name); writeParam("area", name); centerOnArea(name);
+  }
+
+  // switch lens; keep the URL shareable so a link drops someone straight into a view
+  function switchView(v) {
+    setView(v); writeParam("view", v);
+    if (v === "local") centerOnArea(area); else cityView();
+  }
+
+  // when the map first becomes ready in local view, frame the user's area
+  useEffect(() => {
+    if (mapReady && view === "local" && hotspots.length) centerOnArea(area);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mapReady, view, hotspots.length]);
 
   const card = { background: T.panel, borderRadius: 6, border: `1px solid ${T.hair}`,
     boxShadow: "0 6px 24px rgba(11,16,32,0.12)", fontFamily: T.display,
@@ -195,7 +286,8 @@ function App() {
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100vh", fontFamily: T.display, color: T.ink }}>
-      {/* HEADLINE BANNER (top center) — quantified takeaway + before/after toggle */}
+      {/* HEADLINE BANNER (top center) — admin only (decluttered out of local view) */}
+      {view === "admin" && (
       <div style={{ ...card, position: "absolute", top: 12, left: "50%", transform: "translateX(-50%)",
                     zIndex: 1000, padding: "9px 8px 9px 0", display: "flex", alignItems: "center", gap: 4,
                     borderLeft: `3px solid ${T.accent}`,
@@ -220,8 +312,60 @@ function App() {
           ))}
         </div>
       </div>
+      )}
 
-      {/* WARD SIDE PANEL (left) */}
+      {/* LEFT PANEL — local: compact "in your area"; admin: full ward list */}
+      {view === "local" && (
+        <div style={{ ...card, position: "absolute", top: 12, left: 12, zIndex: 999, padding: "14px 16px", width: 264, maxHeight: "90vh", overflowY: "auto", borderTop: `3px solid ${T.accent}` }}>
+          <div style={{ ...eyebrow, marginBottom: 3 }}>Your area</div>
+          <select value={area} onChange={(e) => focusArea(e.target.value)}
+            style={{ width: "100%", fontFamily: T.display, fontSize: 15, fontWeight: 700, color: T.ink,
+                     border: "none", borderBottom: `2px solid ${T.accent}`, padding: "2px 0 5px", marginBottom: 8,
+                     background: "transparent", cursor: "pointer", outline: "none" }}>
+            {areaOptions.map((w) => <option key={w} value={w}>{w}</option>)}
+          </select>
+          <div style={{ fontSize: 12, color: "#666", marginBottom: 10 }}>
+            {localList.length} hotspot{localList.length === 1 ? "" : "s"} near you
+            {localBlind > 0 && <> · <b style={{ color: "#8E24AA" }}>{localBlind} blind spot{localBlind === 1 ? "" : "s"}</b></>}
+          </div>
+          {/* News in your area — compact, max 3 lines, all area-scoped from shipped data */}
+          {localNews.length > 0 && (
+            <div style={{ marginBottom: 10, padding: "8px 10px", background: "#F8F9FB", border: `1px solid ${T.hair}`, borderRadius: 6 }}>
+              <div style={{ ...eyebrow, marginBottom: 5 }}>News in your area</div>
+              {localNews.map((n, i) => (
+                <div key={i} style={{ display: "flex", gap: 7, fontSize: 11, lineHeight: 1.4,
+                                      marginBottom: i < localNews.length - 1 ? 5 : 0, color: "#444" }}>
+                  <span style={{ color: n.color, flexShrink: 0 }}>{n.icon}</span>
+                  <span>{n.text}</span>
+                </div>
+              ))}
+            </div>
+          )}
+          {localList.length === 0 && (
+            <div style={{ fontSize: 12, color: "#999", padding: "6px 0 10px" }}>
+              No mapped hotspots here yet — pick another area above.
+            </div>
+          )}
+          {localList.slice(0, 8).map((h) => (
+            <div key={h.priority_rank} onClick={() => setSelected(h)}
+              style={{ padding: "8px 10px", marginBottom: 6, fontSize: 12.5, cursor: "pointer",
+                       border: "1px solid #eee", borderRadius: 6, display: "flex", alignItems: "center", gap: 9,
+                       borderLeft: `3px solid ${CIS_COLOR[h.cis_class] || "#ccc"}` }}>
+              <span style={{ fontFamily: T.mono, fontWeight: 700, fontSize: 14, color: CIS_COLOR[h.cis_class] || T.ink }}>{h.cis ?? "—"}</span>
+              <span style={{ flex: 1, color: "#333" }}>
+                {h.cis_class || "—"} impact
+                {h.blindspot && <span style={{ color: "#8E24AA" }}> · blind spot</span>}
+              </span>
+            </div>
+          ))}
+          <div style={{ fontSize: 10.5, color: T.muted, marginTop: 4, lineHeight: 1.45 }}>
+            Tap a hotspot for its congestion breakdown. Showing only what's relevant to your area.
+          </div>
+        </div>
+      )}
+
+      {/* WARD SIDE PANEL (left) — admin */}
+      {view === "admin" && (
       <div style={{ ...card, position: "absolute", top: 12, left: 12, zIndex: 999, padding: "14px 16px", width: 280, maxHeight: "90vh", overflowY: "auto", borderTop: `3px solid ${T.accent}` }}>
         <div style={{ ...eyebrow, marginBottom: 3 }}>Bengaluru · Enforcement</div>
         <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 6, letterSpacing: -0.2 }}>Priority Hotspots</div>
@@ -261,15 +405,29 @@ function App() {
         ))}
       </div>
 
-      {/* LAYER TOGGLES (right) */}
+      )}
+
+      {/* RIGHT PANEL — view switcher + (admin) layers + socioeconomic toggle + legend */}
       <div style={{ ...card, position: "absolute", top: 12, right: 12, zIndex: 999, padding: "12px 16px", fontSize: 13, width: 210 }}>
-        <div style={{ ...eyebrow, marginBottom: 8 }}>Layers</div>
-        {[["traffic", "Live traffic flow"], ["heatmap", "Violation heatmap (raw)"], ["circles", "Priority hotspots"],
-          ["blindspots", "Highlight blind spots"], ["recidivists", "Recidivist vehicles"]].map(([k, l]) => (
-          <label key={k} style={{ display: "block", marginBottom: 6 }}>
-            <input type="checkbox" checked={show[k]} onChange={() => setShow((s) => ({ ...s, [k]: !s[k] }))} /> {l}
-          </label>
-        ))}
+        {/* lens switcher — shareable via ?view= */}
+        <div style={{ ...eyebrow, marginBottom: 6 }}>View</div>
+        <div style={{ display: "flex", border: `1px solid ${T.ink}`, borderRadius: 5, overflow: "hidden", marginBottom: 12 }}>
+          {[["local", "My area"], ["admin", "Admin"]].map(([v, l]) => (
+            <button key={v} onClick={() => switchView(v)}
+              style={{ flex: 1, padding: "5px 8px", fontSize: 11, border: "none", cursor: "pointer", fontFamily: T.display,
+                       background: view === v ? T.ink : "transparent", color: view === v ? "#fff" : T.ink,
+                       fontWeight: 600, letterSpacing: 0.3 }}>{l}</button>
+          ))}
+        </div>
+        {view === "admin" && (<>
+          <div style={{ ...eyebrow, marginBottom: 8 }}>Layers</div>
+          {[["traffic", "Live traffic flow"], ["heatmap", "Violation heatmap (raw)"], ["circles", "Priority hotspots"],
+            ["blindspots", "Highlight blind spots"], ["recidivists", "Recidivist vehicles"]].map(([k, l]) => (
+            <label key={k} style={{ display: "block", marginBottom: 6 }}>
+              <input type="checkbox" checked={show[k]} onChange={() => setShow((s) => ({ ...s, [k]: !s[k] }))} /> {l}
+            </label>
+          ))}
+        </>)}
         <div style={{ marginTop: 10, paddingTop: 8, borderTop: `1px solid ${T.hair}`, fontSize: 12, color: T.muted }}>
           <div><span style={{ color: "#C62828" }}>●</span> High &nbsp; <span style={{ color: "#EF6C00" }}>●</span> Med &nbsp; <span style={{ color: "#F9A825" }}>●</span> Low priority</div>
           <div style={{ marginTop: 4 }}><span style={{ color: "#8E24AA" }}>◆</span> Blind spot (high impact, low patrol) &nbsp; <span style={{ color: "#1565C0" }}>●</span> Recidivist</div>

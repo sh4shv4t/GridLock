@@ -14,6 +14,8 @@
 > flags **enforcement blind spots** — so patrols target where it matters, not
 > just where they already go.
 
+🎥 **[Watch the demo walkthrough](https://www.loom.com/share/12ae4597fb9f46b9b7469817b28bc647)**
+
 ---
 
 ## ⚡ Quick start (run the site)

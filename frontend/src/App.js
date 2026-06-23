@@ -85,6 +85,7 @@ function App() {
   const [recids, setRecids] = useState([]);
   const [summary, setSummary] = useState(null);
   const [insights, setInsights] = useState(null);
+  const [interps, setInterps] = useState([]);          // per-hotspot interpretability ("why")
   const [showWhy, setShowWhy] = useState(false);
   const [mode, setMode] = useState("debiased"); // "debiased" | "raw" (admin only)
   const [mapReady, setMapReady] = useState(false);
@@ -113,6 +114,7 @@ function App() {
     fetch("/recidivists.json").then((r) => (r.ok ? r.json() : [])).then(setRecids).catch(() => {});
     fetch("/summary.json").then((r) => (r.ok ? r.json() : null)).then(setSummary).catch(() => {});
     fetch("/insights.json").then((r) => (r.ok ? r.json() : null)).then(setInsights).catch(() => {});
+    fetch("/hotspot_interpretations.json").then((r) => (r.ok ? r.json() : [])).then(setInterps).catch(() => {});
   }, []);
 
   // local view is intentionally sparse: fixed minimal layers, debiased-only,
@@ -199,6 +201,16 @@ function App() {
   }, [localBlind, wardRanking, area, localList]);
 
   const blindCount = useMemo(() => hotspots.filter((h) => h.blindspot).length, [hotspots]);
+
+  // per-hotspot interpretability, keyed by exact cell centroid — both the hotspot
+  // export and the interpreter round the same H3 centroid to 6 dp, so lat,lng is a
+  // stable join key (hotspots_full.json carries no h3 id). Powers the "why" panel;
+  // only the top hotspots by CIS have a record, so the panel renders conditionally.
+  const interpByLoc = useMemo(() => {
+    const m = {};
+    interps.forEach((it) => { m[`${it.lat},${it.lng}`] = it; });
+    return m;
+  }, [interps]);
 
   // init map — guarded to run EXACTLY once (StrictMode double-mount safe)
   const initedRef = useRef(false);
@@ -655,6 +667,45 @@ function App() {
           )}
         </div>
       )}
+
+      {/* WHY THIS IS A HOTSPOT — per-hotspot interpretability (place / infra / income).
+          Only rendered for hotspots that have an interpretation record. */}
+      {(() => {
+        const why = interpByLoc[`${selected.lat},${selected.lng}`];
+        if (!why) return null;
+        const isAI = why.reason_source && why.reason_source !== "rule-based";
+        const cell = (label, value, sub, valColor) => (
+          <div>
+            <div style={eyebrow}>{label}</div>
+            <div style={{ color: valColor || T.ink, fontWeight: 700, fontSize: 11.5, textTransform: "capitalize" }}>{value || "—"}</div>
+            {sub && <div style={{ color: T.muted, fontSize: 10, lineHeight: 1.35 }}>{sub}</div>}
+          </div>
+        );
+        return (
+          <div style={{ marginTop: 12, paddingTop: 10, borderTop: "1px solid #eee" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+              <span style={{ ...eyebrow, color: T.accent }}>Why this is a hotspot</span>
+              <span title={isAI ? `reason by ${why.reason_source}` : "rule-based reason"}
+                    style={{ fontSize: 9, fontFamily: T.mono, color: T.muted, border: `1px solid ${T.hair}`,
+                             borderRadius: 3, padding: "1px 5px" }}>
+                {isAI ? "AI" : "HEURISTIC"}
+              </span>
+            </div>
+            <div style={{ fontSize: 12.5, color: "#333", lineHeight: 1.55, marginBottom: 9 }}>{why.reason}</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "9px 12px" }}>
+              {cell("Place", why.place?.primary_label,
+                    why.place?.landmarks?.length ? why.place.landmarks.slice(0, 3).join(", ") : null)}
+              {cell("Primary driver", why.primary_driver, null, T.accent)}
+              {cell("Income proxy", why.income_proxy?.level, why.income_proxy?.basis)}
+              {cell("Infrastructure", why.infrastructure?.investment_level,
+                    why.infrastructure?.demand_supply != null ? `demand/supply ${why.infrastructure.demand_supply}` : null)}
+            </div>
+            {why.income_proxy?.note && (
+              <div style={{ fontSize: 9.5, color: T.muted, marginTop: 8, lineHeight: 1.4 }}>ⓘ {why.income_proxy.note}</div>
+            )}
+          </div>
+        );
+      })()}
     </>
   );
 

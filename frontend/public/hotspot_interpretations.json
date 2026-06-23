@@ -1,0 +1,2447 @@
+[
+  {
+    "hotspot_id": "8960145b613ffff",
+    "lat": 12.998784,
+    "lng": 77.597359,
+    "ward_name": "Jayamahal",
+    "cis": 66.8,
+    "cis_class": "High",
+    "latent_rate": 261.269,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "More",
+        "Jayamahal Shani Mandir",
+        "Jm sports"
+      ],
+      "category_counts": {
+        "retail": 2,
+        "religious": 2,
+        "food": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 0.89,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 2,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 66.8 (High) likely because it draws concentrated demand from a place of worship (More, Jayamahal Shani Mandir, Jm sports) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (More, Jayamahal Shani Mandir, Jm sports) nearby",
+      "narrow carriageway (~2 lanes)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89601459eafffff",
+    "lat": 13.04822,
+    "lng": 77.500725,
+    "ward_name": "Bagalakunte",
+    "cis": 62.7,
+    "cis_class": "High",
+    "latent_rate": 308.078,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Nagasandra",
+        "Deepak Factory",
+        "Dus Minute",
+        "Madras Coffee House"
+      ],
+      "category_counts": {
+        "transit": 5,
+        "retail": 5,
+        "food": 1,
+        "education": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 1.8,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 4,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 62.7 (High) likely because it draws concentrated demand from a shopping/mall (Nagasandra, Deepak Factory, Dus Minute) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Nagasandra, Deepak Factory, Dus Minute) nearby",
+      "narrow carriageway (~2 lanes)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8961892cc57ffff",
+    "lat": 13.035039,
+    "lng": 77.624459,
+    "ward_name": "Nagavara",
+    "cis": 60.5,
+    "cis_class": "High",
+    "latent_rate": 208.102,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Glass Factory",
+        "Sri Sai Hospital, Bengaluru Urban",
+        "Uni Gas"
+      ],
+      "category_counts": {
+        "transit": 2,
+        "healthcare": 1,
+        "retail": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 0.33,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 1,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 60.5 (High) likely because it draws concentrated demand from a shopping/mall (Glass Factory, Sri Sai Hospital, Bengaluru Urban, Uni Gas) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Glass Factory, Sri Sai Hospital, Bengaluru Urban, Uni Gas) nearby",
+      "narrow carriageway (~2 lanes)",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8961892eeb3ffff",
+    "lat": 12.991115,
+    "lng": 77.652016,
+    "ward_name": "Lal Bahadur Nagar",
+    "cis": 60.3,
+    "cis_class": "High",
+    "latent_rate": 246.579,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Baiyappanahalli Metro Station Back Gate",
+        "Baiyappanahalli",
+        "Baiyyappanahalli Junction",
+        "Ganesha Temple"
+      ],
+      "category_counts": {
+        "transit": 14,
+        "religious": 1,
+        "retail": 1,
+        "office": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 4.0)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 4.0,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 1,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 60.3 (High) likely because it draws concentrated demand from a place of worship (Baiyappanahalli Metro Station Back Gate, Baiyappanahalli, Baiyyappanahalli Junction) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Baiyappanahalli Metro Station Back Gate, Baiyappanahalli, Baiyyappanahalli Junction) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8961892584bffff",
+    "lat": 12.951716,
+    "lng": 77.607399,
+    "ward_name": "Neelasandra",
+    "cis": 59.4,
+    "cis_class": "High",
+    "latent_rate": 224.541,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Anepalya",
+        "Hosur Road Cemetery",
+        "Methadist HPS Anepalya",
+        "Indian Christian Cemetry"
+      ],
+      "category_counts": {
+        "transit": 9,
+        "retail": 5,
+        "education": 1,
+        "religious": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 0.0,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 0,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 59.4 (High) likely because it draws concentrated demand from a place of worship (Anepalya, Hosur Road Cemetery, Methadist HPS Anepalya) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Anepalya, Hosur Road Cemetery, Methadist HPS Anepalya) nearby",
+      "narrow carriageway (~2 lanes)",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618934ac7ffff",
+    "lat": 12.804833,
+    "lng": 77.698215,
+    "ward_name": "Outside BBMP",
+    "cis": 53.5,
+    "cis_class": "High",
+    "latent_rate": 147.571,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Adyar Ananda Bhavan",
+        "E-City Allergy & Asthma Specialty Clinic",
+        "B.M Pharmacy",
+        "Ticket Booking"
+      ],
+      "category_counts": {
+        "retail": 9,
+        "office": 2,
+        "food": 2,
+        "healthcare": 1,
+        "market": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [],
+      "demand_supply": 1.11,
+      "n_lanes": 2.1
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 5,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 53.5 (High) likely because it draws concentrated demand from a shopping/mall (Adyar Ananda Bhavan, E-City Allergy & Asthma Specialty Clinic, B.M Pharmacy) nearby. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Adyar Ananda Bhavan, E-City Allergy & Asthma Specialty Clinic, B.M Pharmacy) nearby"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "896189242c3ffff",
+    "lat": 12.910951,
+    "lng": 77.64403,
+    "ward_name": "Agara",
+    "cis": 52.9,
+    "cis_class": "High",
+    "latent_rate": 202.638,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Reliance Digital",
+        "KidZone",
+        "Aishwarya Supermarket",
+        "Kimera Wellness Spa And Salon"
+      ],
+      "category_counts": {
+        "food": 20,
+        "retail": 17,
+        "office": 13,
+        "transit": 8,
+        "healthcare": 2,
+        "education": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 6.3)"
+      ],
+      "demand_supply": 6.33,
+      "n_lanes": 2.1
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 17,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 52.9 (High) likely because it draws concentrated demand from a shopping/mall (Reliance Digital, KidZone, Aishwarya Supermarket) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Reliance Digital, KidZone, Aishwarya Supermarket) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618925d07ffff",
+    "lat": 12.917555,
+    "lng": 77.594788,
+    "ward_name": "J P Nagar",
+    "cis": 52.7,
+    "cis_class": "High",
+    "latent_rate": 193.989,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Smart Bazaar",
+        "Ragigudda",
+        "East End Bus Stop",
+        "Pantaloons Onloop"
+      ],
+      "category_counts": {
+        "retail": 67,
+        "food": 13,
+        "transit": 9,
+        "office": 9,
+        "religious": 5,
+        "healthcare": 5,
+        "education": 3,
+        "market": 2
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 12.5)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 12.53,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 42,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 52.7 (High) likely because it draws concentrated demand from a place of worship (Smart Bazaar, Ragigudda, East End Bus Stop) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Smart Bazaar, Ragigudda, East End Bus Stop) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145a423ffff",
+    "lat": 12.926261,
+    "lng": 77.551621,
+    "ward_name": "Vidyapeeta ward",
+    "cis": 51.8,
+    "cis_class": "High",
+    "latent_rate": 192.405,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Big Bazaar",
+        "Food World",
+        "Udhbhava Hospital",
+        "Levi's"
+      ],
+      "category_counts": {
+        "healthcare": 9,
+        "retail": 8,
+        "food": 8,
+        "transit": 6,
+        "office": 2
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 2.67,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 10,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 51.8 (High) likely because it draws concentrated demand from a shopping/mall (Big Bazaar, Food World, Udhbhava Hospital) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Big Bazaar, Food World, Udhbhava Hospital) nearby",
+      "narrow carriageway (~2 lanes)",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145808bffff",
+    "lat": 12.989411,
+    "lng": 77.519595,
+    "ward_name": "Vijayanagara Krishnadevaraya",
+    "cis": 51.7,
+    "cis_class": "High",
+    "latent_rate": 308.894,
+    "place": {
+      "primary_type": "transit",
+      "primary_label": "transit hub",
+      "landmarks": [
+        "Summanahalli"
+      ],
+      "category_counts": {
+        "transit": 7,
+        "office": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [],
+      "demand_supply": 0.0,
+      "n_lanes": 2.2
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 0,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 51.7 (High) likely because it draws concentrated demand from a transit hub (Summanahalli) nearby, and lower mapped economic activity — limited formal off-street parking. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "transit hub",
+    "factors": [
+      "draws concentrated demand from a transit hub (Summanahalli) nearby",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89601690c2bffff",
+    "lat": 13.19104,
+    "lng": 77.645176,
+    "ward_name": "Outside BBMP",
+    "cis": 51.2,
+    "cis_class": "High",
+    "latent_rate": 115.103,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Sadahalli Gate",
+        "Tharabana Halli Gate",
+        "Anand",
+        "Akash Global College of Management & Science"
+      ],
+      "category_counts": {
+        "food": 6,
+        "transit": 4,
+        "retail": 2,
+        "office": 1,
+        "education": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [],
+      "demand_supply": 2.22,
+      "n_lanes": 2.2
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 7,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 51.2 (High) likely because it draws concentrated demand from a shopping/mall (Sadahalli Gate, Tharabana Halli Gate, Anand) nearby. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Sadahalli Gate, Tharabana Halli Gate, Anand) nearby"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618925c6bffff",
+    "lat": 12.93672,
+    "lng": 77.615572,
+    "ward_name": "Adugodi",
+    "cis": 49.8,
+    "cis_class": "Medium",
+    "latent_rate": 174.127,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Sweet Chariot",
+        "Adyar Ananda Bhavan",
+        "Mobile Store",
+        "Sree Mittai"
+      ],
+      "category_counts": {
+        "food": 49,
+        "retail": 45,
+        "office": 14,
+        "religious": 7,
+        "transit": 4,
+        "education": 2,
+        "healthcare": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 20.3)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 20.33,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 60,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 49.8 (Medium) likely because it draws concentrated demand from a place of worship (Sweet Chariot, Adyar Ananda Bhavan, Mobile Store) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Sweet Chariot, Adyar Ananda Bhavan, Mobile Store) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618924043ffff",
+    "lat": 12.896016,
+    "lng": 77.635349,
+    "ward_name": "Rupenaagrahara",
+    "cis": 48.7,
+    "cis_class": "Medium",
+    "latent_rate": 135.694,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "RNS Maruti Motors",
+        "Garavebhavipalaya",
+        "Bajaj",
+        "Trend Automobiles"
+      ],
+      "category_counts": {
+        "retail": 7,
+        "transit": 3,
+        "healthcare": 3,
+        "education": 2,
+        "religious": 1,
+        "office": 1,
+        "market": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [],
+      "demand_supply": 1.8,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 6,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 48.7 (Medium) likely because it draws concentrated demand from a place of worship (RNS Maruti Motors, Garavebhavipalaya, Bajaj) nearby. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (RNS Maruti Motors, Garavebhavipalaya, Bajaj) nearby"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618920e47ffff",
+    "lat": 12.954407,
+    "lng": 77.742967,
+    "ward_name": "Whitefield",
+    "cis": 48.7,
+    "cis_class": "Medium",
+    "latent_rate": 125.677,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Tyre Empire",
+        "Hair Loss Treatment in Bangalore - Hairline International",
+        "Bakes n More",
+        "LG"
+      ],
+      "category_counts": {
+        "retail": 21,
+        "food": 4,
+        "healthcare": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [],
+      "demand_supply": 0.0,
+      "n_lanes": 2.2
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 0,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 48.7 (Medium) likely because it draws concentrated demand from a shopping/mall (Tyre Empire, Hair Loss Treatment in Bangalore - Hairline International, Bakes n More) nearby, and lower mapped economic activity — limited formal off-street parking. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Tyre Empire, Hair Loss Treatment in Bangalore - Hairline International, Bakes n More) nearby",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145b16bffff",
+    "lat": 12.996799,
+    "lng": 77.549189,
+    "ward_name": "Rajaji Nagar",
+    "cis": 48.1,
+    "cis_class": "Medium",
+    "latent_rate": 115.172,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Manjunatha Nagara",
+        "Navarang Theatre",
+        "Ranganatha Swamy Temple",
+        "My Looks"
+      ],
+      "category_counts": {
+        "retail": 73,
+        "transit": 18,
+        "food": 18,
+        "office": 17,
+        "healthcare": 7,
+        "religious": 3,
+        "education": 2
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 13.9)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 13.87,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 50,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 48.1 (Medium) likely because it draws concentrated demand from a place of worship (Manjunatha Nagara, Navarang Theatre, Ranganatha Swamy Temple) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Manjunatha Nagara, Navarang Theatre, Ranganatha Swamy Temple) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8961892e97bffff",
+    "lat": 12.994465,
+    "lng": 77.610528,
+    "ward_name": "Pulikeshinagar",
+    "cis": 47.4,
+    "cis_class": "Medium",
+    "latent_rate": 166.518,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Seventh Day Adventist Hospital",
+        "Fathima's Girls High School",
+        "Dream World",
+        "Reliance Fresh"
+      ],
+      "category_counts": {
+        "retail": 20,
+        "transit": 12,
+        "healthcare": 7,
+        "education": 7,
+        "food": 6,
+        "office": 6,
+        "religious": 5
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 3.0)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 3.0,
+      "n_lanes": 1.8
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 5,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 47.4 (Medium) likely because it draws concentrated demand from a place of worship (Seventh Day Adventist Hospital, Fathima's Girls High School, Dream World) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Seventh Day Adventist Hospital, Fathima's Girls High School, Dream World) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8961892614bffff",
+    "lat": 12.839308,
+    "lng": 77.643416,
+    "ward_name": "Outside BBMP",
+    "cis": 46.9,
+    "cis_class": "Medium",
+    "latent_rate": 85.877,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Westside"
+      ],
+      "category_counts": {
+        "food": 2,
+        "office": 1,
+        "retail": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 0.0,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 0,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 46.9 (Medium) likely because it draws concentrated demand from a shopping/mall (Westside) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Westside) nearby",
+      "narrow carriageway (~2 lanes)",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960169019bffff",
+    "lat": 13.188814,
+    "lng": 77.681299,
+    "ward_name": "Outside BBMP",
+    "cis": 46.6,
+    "cis_class": "Medium",
+    "latent_rate": 96.869,
+    "place": {
+      "primary_type": null,
+      "primary_label": "mixed use",
+      "landmarks": [],
+      "category_counts": {}
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [],
+      "demand_supply": 0.0,
+      "n_lanes": 2.5
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 0,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 46.6 (Medium) likely because it lower mapped economic activity — limited formal off-street parking. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "demand-supply gap",
+    "factors": [
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960169644fffff",
+    "lat": 13.092845,
+    "lng": 77.594126,
+    "ward_name": "Yelahanka Satellite Town",
+    "cis": 46.0,
+    "cis_class": "Medium",
+    "latent_rate": 175.375,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Yelahanka Police Station",
+        "Spar",
+        "North City CT Scan",
+        "Plum Goodness"
+      ],
+      "category_counts": {
+        "retail": 15,
+        "food": 4,
+        "transit": 3,
+        "healthcare": 1,
+        "religious": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 4.0)"
+      ],
+      "demand_supply": 4.0,
+      "n_lanes": 2.5
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 15,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 46.0 (Medium) likely because it draws concentrated demand from a place of worship (Yelahanka Police Station, Spar, North City CT Scan) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Yelahanka Police Station, Spar, North City CT Scan) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89601690193ffff",
+    "lat": 13.185608,
+    "lng": 77.680642,
+    "ward_name": "Outside BBMP",
+    "cis": 45.1,
+    "cis_class": "Medium",
+    "latent_rate": 51.956,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Beguru (Towards Yalahanka)",
+        "Beguru"
+      ],
+      "category_counts": {
+        "transit": 3,
+        "retail": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [],
+      "demand_supply": 0.0,
+      "n_lanes": 2.2
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 0,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 45.1 (Medium) likely because it draws concentrated demand from a shopping/mall (Beguru (Towards Yalahanka), Beguru) nearby, and lower mapped economic activity — limited formal off-street parking. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Beguru (Towards Yalahanka), Beguru) nearby",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145b483ffff",
+    "lat": 12.971003,
+    "lng": 77.594484,
+    "ward_name": "Shantala Nagar",
+    "cis": 44.5,
+    "cis_class": "Medium",
+    "latent_rate": 162.984,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Ganapathi & Gayatri Temple",
+        "LimeLite Unisex Salon & Spa",
+        "St. Joseph's Indian Composite PU College",
+        "Mallya Hospital"
+      ],
+      "category_counts": {
+        "retail": 27,
+        "food": 18,
+        "office": 6,
+        "education": 2,
+        "transit": 2,
+        "religious": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [],
+      "demand_supply": 2.93,
+      "n_lanes": 2.1
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 9,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 44.5 (Medium) likely because it draws concentrated demand from a place of worship (Ganapathi & Gayatri Temple, LimeLite Unisex Salon & Spa, St. Joseph's Indian Composite PU College) nearby. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Ganapathi & Gayatri Temple, LimeLite Unisex Salon & Spa, St. Joseph's Indian Composite PU College) nearby"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8961892e2bbffff",
+    "lat": 13.00914,
+    "lng": 77.695094,
+    "ward_name": "K R Puram",
+    "cis": 44.0,
+    "cis_class": "Medium",
+    "latent_rate": 59.537,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Ganesha Temple",
+        "KR Pura Market",
+        "Sriram Hospital, Bangalore",
+        "K R Puram Super Speciality Hospital"
+      ],
+      "category_counts": {
+        "healthcare": 11,
+        "office": 2,
+        "transit": 2,
+        "religious": 1,
+        "retail": 1,
+        "market": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 0.67,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 1,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 44.0 (Medium) likely because it draws concentrated demand from a place of worship (Ganesha Temple, KR Pura Market, Sriram Hospital, Bangalore) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Ganesha Temple, KR Pura Market, Sriram Hospital, Bangalore) nearby",
+      "narrow carriageway (~2 lanes)",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618924ec7ffff",
+    "lat": 12.895091,
+    "lng": 77.598622,
+    "ward_name": "Vinayakanagar",
+    "cis": 44.0,
+    "cis_class": "Medium",
+    "latent_rate": 140.776,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Nandhu motors",
+        "Lathangi Ford Service Center",
+        "IIM Apollo",
+        "Xiaomi MI Service Center"
+      ],
+      "category_counts": {
+        "retail": 9,
+        "transit": 3,
+        "food": 3,
+        "healthcare": 2
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 1.33,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 2,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 44.0 (Medium) likely because it draws concentrated demand from a shopping/mall (Nandhu motors, Lathangi Ford Service Center, IIM Apollo) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Nandhu motors, Lathangi Ford Service Center, IIM Apollo) nearby",
+      "narrow carriageway (~2 lanes)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145a30bffff",
+    "lat": 12.959469,
+    "lng": 77.527517,
+    "ward_name": "Attiguppe",
+    "cis": 43.9,
+    "cis_class": "Medium",
+    "latent_rate": 199.999,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Chandra Layout",
+        "Ganesha temple",
+        "Gurushree Hitech Multispeciality Hospital",
+        "Allen Solly"
+      ],
+      "category_counts": {
+        "retail": 25,
+        "transit": 14,
+        "food": 12,
+        "healthcare": 8,
+        "office": 7,
+        "religious": 1,
+        "education": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 6.0)"
+      ],
+      "demand_supply": 6.0,
+      "n_lanes": 2.1
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 12,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 43.9 (Medium) likely because it draws concentrated demand from a place of worship (Chandra Layout, Ganesha temple, Gurushree Hitech Multispeciality Hospital) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Chandra Layout, Ganesha temple, Gurushree Hitech Multispeciality Hospital) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618920ad7ffff",
+    "lat": 12.959797,
+    "lng": 77.732814,
+    "ward_name": "Whitefield",
+    "cis": 43.6,
+    "cis_class": "Medium",
+    "latent_rate": 133.155,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "India Detailing Garage"
+      ],
+      "category_counts": {
+        "food": 5,
+        "retail": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 0.89,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 2,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 43.6 (Medium) likely because it draws concentrated demand from a shopping/mall (India Detailing Garage) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (India Detailing Garage) nearby",
+      "narrow carriageway (~2 lanes)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145a24fffff",
+    "lat": 12.973288,
+    "lng": 77.55,
+    "ward_name": "Vijayanagar",
+    "cis": 43.5,
+    "cis_class": "Medium",
+    "latent_rate": 79.423,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Prasanna Talkies",
+        "Shivakrupa Hospital",
+        "Toll Gate",
+        "Banashankari Temple"
+      ],
+      "category_counts": {
+        "retail": 10,
+        "transit": 7,
+        "healthcare": 5,
+        "religious": 4,
+        "food": 1,
+        "office": 1,
+        "education": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 2.4,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 4,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 43.5 (Medium) likely because it draws concentrated demand from a place of worship (Prasanna Talkies, Shivakrupa Hospital, Toll Gate) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Prasanna Talkies, Shivakrupa Hospital, Toll Gate) nearby",
+      "narrow carriageway (~2 lanes)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145ae03ffff",
+    "lat": 12.948855,
+    "lng": 77.505697,
+    "ward_name": "Jnana Bharathi",
+    "cis": 43.2,
+    "cis_class": "Medium",
+    "latent_rate": 120.773,
+    "place": {
+      "primary_type": null,
+      "primary_label": "mixed use",
+      "landmarks": [],
+      "category_counts": {}
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 0.0,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 0,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 43.2 (Medium) likely because it narrow carriageway (~2 lanes), and lower mapped economic activity — limited formal off-street parking. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "demand-supply gap",
+    "factors": [
+      "narrow carriageway (~2 lanes)",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145a0c7ffff",
+    "lat": 12.940164,
+    "lng": 77.548846,
+    "ward_name": "Girinagar",
+    "cis": 42.6,
+    "cis_class": "Medium",
+    "latent_rate": 130.016,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Sharadamba Temple",
+        "Mahaganapathi Temple",
+        "Muneshwara Block",
+        "Sri Vinayaka Poly Clinic"
+      ],
+      "category_counts": {
+        "retail": 19,
+        "healthcare": 6,
+        "education": 3,
+        "food": 3,
+        "religious": 2,
+        "transit": 1,
+        "office": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 4.0)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 4.0,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 9,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 42.6 (Medium) likely because it draws concentrated demand from a place of worship (Sharadamba Temple, Mahaganapathi Temple, Muneshwara Block) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Sharadamba Temple, Mahaganapathi Temple, Muneshwara Block) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145941bffff",
+    "lat": 13.032016,
+    "lng": 77.564817,
+    "ward_name": "Aramane Nagara",
+    "cis": 42.5,
+    "cis_class": "Medium",
+    "latent_rate": 121.34,
+    "place": {
+      "primary_type": "education",
+      "primary_label": "school/college",
+      "landmarks": [
+        "MS Ramaiah University",
+        "M S Ramaiah Institute of Technology"
+      ],
+      "category_counts": {
+        "food": 2,
+        "education": 2,
+        "office": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 0.0,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 0,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 42.5 (Medium) likely because it draws concentrated demand from a school/college (MS Ramaiah University, M S Ramaiah Institute of Technology) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "school/college",
+    "factors": [
+      "draws concentrated demand from a school/college (MS Ramaiah University, M S Ramaiah Institute of Technology) nearby",
+      "narrow carriageway (~2 lanes)",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145b59bffff",
+    "lat": 12.964651,
+    "lng": 77.576325,
+    "ward_name": "Chamrajapet",
+    "cis": 42.1,
+    "cis_class": "Medium",
+    "latent_rate": 46.863,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "KR Market",
+        "Krishnarajendra Market",
+        "Koti Sri Anjaneya Temple",
+        "Koti Dhanvanthri Ganesha Temple"
+      ],
+      "category_counts": {
+        "transit": 11,
+        "retail": 11,
+        "religious": 5,
+        "education": 4,
+        "market": 4,
+        "food": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 1.78,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 0,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 42.1 (Medium) likely because it draws concentrated demand from a place of worship (KR Market, Krishnarajendra Market, Koti Sri Anjaneya Temple) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (KR Market, Krishnarajendra Market, Koti Sri Anjaneya Temple) nearby",
+      "narrow carriageway (~2 lanes)",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618925983ffff",
+    "lat": 12.926141,
+    "lng": 77.585306,
+    "ward_name": "Byrasandra",
+    "cis": 41.8,
+    "cis_class": "Medium",
+    "latent_rate": 161.52,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Shanti Hospital",
+        "Raghavendra Swamy Mutt",
+        "Vijaya Pre-University College",
+        "Kalamandir"
+      ],
+      "category_counts": {
+        "retail": 27,
+        "food": 16,
+        "education": 8,
+        "office": 8,
+        "transit": 7,
+        "healthcare": 4,
+        "religious": 3
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 8.0)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 8.0,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 24,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 41.8 (Medium) likely because it draws concentrated demand from a place of worship (Shanti Hospital, Raghavendra Swamy Mutt, Vijaya Pre-University College) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Shanti Hospital, Raghavendra Swamy Mutt, Vijaya Pre-University College) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8961892cd23ffff",
+    "lat": 13.023386,
+    "lng": 77.591152,
+    "ward_name": "Ganga Nagar",
+    "cis": 41.5,
+    "cis_class": "Medium",
+    "latent_rate": 166.747,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Ganga Nagar",
+        "Nilgiri's",
+        "UniverCell Store",
+        "Titan Show room"
+      ],
+      "category_counts": {
+        "transit": 6,
+        "retail": 4,
+        "food": 4,
+        "healthcare": 2,
+        "office": 2,
+        "education": 1,
+        "religious": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 1.78,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 4,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 41.5 (Medium) likely because it draws concentrated demand from a place of worship (Ganga Nagar, Nilgiri's, UniverCell Store) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Ganga Nagar, Nilgiri's, UniverCell Store) nearby",
+      "narrow carriageway (~2 lanes)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618920a2bffff",
+    "lat": 12.966276,
+    "lng": 77.717256,
+    "ward_name": "AECS Layout",
+    "cis": 41.0,
+    "cis_class": "Medium",
+    "latent_rate": 96.671,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Cosmos",
+        "Tata Motors",
+        "Brookefield Hospital(A Unit Of Sanjeevani Hospital)",
+        "N Stores"
+      ],
+      "category_counts": {
+        "retail": 44,
+        "food": 27,
+        "healthcare": 6,
+        "transit": 5,
+        "office": 2,
+        "education": 1,
+        "religious": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 10.7)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 10.67,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 38,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 41.0 (Medium) likely because it draws concentrated demand from a place of worship (Cosmos, Tata Motors, Brookefield Hospital(A Unit Of Sanjeevani Hospital)) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Cosmos, Tata Motors, Brookefield Hospital(A Unit Of Sanjeevani Hospital)) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8961892eca3ffff",
+    "lat": 12.970825,
+    "lng": 77.645047,
+    "ward_name": "Old Thippasandra",
+    "cis": 41.0,
+    "cis_class": "Medium",
+    "latent_rate": 117.756,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Mothercare",
+        "DVK Biking",
+        "The House of Fooba Wooba",
+        "C Store"
+      ],
+      "category_counts": {
+        "food": 35,
+        "retail": 33,
+        "office": 27,
+        "healthcare": 10,
+        "religious": 3,
+        "education": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 14.2)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 14.22,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 32,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 41.0 (Medium) likely because it draws concentrated demand from a place of worship (Mothercare, DVK Biking, The House of Fooba Wooba) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Mothercare, DVK Biking, The House of Fooba Wooba) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960169052fffff",
+    "lat": 13.182403,
+    "lng": 77.679984,
+    "ward_name": "Outside BBMP",
+    "cis": 40.3,
+    "cis_class": "Medium",
+    "latent_rate": 27.62,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Beguru (Towards Yalahanka)",
+        "Beguru"
+      ],
+      "category_counts": {
+        "transit": 3,
+        "retail": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [],
+      "demand_supply": 1.33,
+      "n_lanes": 2.1
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 1,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 40.3 (Medium) likely because it draws concentrated demand from a shopping/mall (Beguru (Towards Yalahanka), Beguru) nearby, and lower mapped economic activity — limited formal off-street parking. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Beguru (Towards Yalahanka), Beguru) nearby",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8961892440bffff",
+    "lat": 12.876716,
+    "lng": 77.648264,
+    "ward_name": "HSR - Singasandra",
+    "cis": 40.2,
+    "cis_class": "Medium",
+    "latent_rate": 64.419,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Singasandra",
+        "Force Motors",
+        "Hero",
+        "SMS Electronics"
+      ],
+      "category_counts": {
+        "retail": 6,
+        "transit": 2,
+        "religious": 1,
+        "food": 1,
+        "office": 1,
+        "education": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [],
+      "demand_supply": 0.6,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 2,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 40.2 (Medium) likely because it draws concentrated demand from a place of worship (Singasandra, Force Motors, Hero) nearby. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Singasandra, Force Motors, Hero) nearby"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145b147ffff",
+    "lat": 12.99251,
+    "lng": 77.553929,
+    "ward_name": "Rajaji Nagar",
+    "cis": 40.0,
+    "cis_class": "Medium",
+    "latent_rate": 52.31,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Basaveshwara College",
+        "ESI Hospital Rajajinagara (Towards Navarang)",
+        "O. G. Variar and Sons Bakery",
+        "Mahesh Opticals"
+      ],
+      "category_counts": {
+        "transit": 11,
+        "retail": 9,
+        "office": 6,
+        "education": 6,
+        "healthcare": 4,
+        "religious": 3,
+        "food": 2
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 2.67,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 2,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 40.0 (Medium) likely because it draws concentrated demand from a place of worship (Basaveshwara College, ESI Hospital Rajajinagara (Towards Navarang), O. G. Variar and Sons Bakery) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Basaveshwara College, ESI Hospital Rajajinagara (Towards Navarang), O. G. Variar and Sons Bakery) nearby",
+      "narrow carriageway (~2 lanes)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618920ba3ffff",
+    "lat": 12.948163,
+    "lng": 77.69947,
+    "ward_name": "Marathahalli",
+    "cis": 39.9,
+    "cis_class": "Medium",
+    "latent_rate": 83.74,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Damro",
+        "Mithaicana",
+        "Elenor International Spa",
+        "Wooden Street"
+      ],
+      "category_counts": {
+        "retail": 29,
+        "food": 26,
+        "office": 2,
+        "transit": 1,
+        "education": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 8.7)"
+      ],
+      "demand_supply": 8.67,
+      "n_lanes": 2.1
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 38,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 39.9 (Medium) likely because it draws concentrated demand from a shopping/mall (Damro, Mithaicana, Elenor International Spa) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Damro, Mithaicana, Elenor International Spa) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8961892e937ffff",
+    "lat": 12.982733,
+    "lng": 77.602505,
+    "ward_name": "Sampangiram Nagar",
+    "cis": 39.8,
+    "cis_class": "Medium",
+    "latent_rate": 39.593,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Shivajinagar Bus Station",
+        "Mallya Audikesh Diagnostics Center",
+        "Dandu Maramma Temple",
+        "Noor and co"
+      ],
+      "category_counts": {
+        "office": 49,
+        "retail": 46,
+        "transit": 26,
+        "food": 7,
+        "religious": 7,
+        "healthcare": 5,
+        "education": 3,
+        "market": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 22.7)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 22.67,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 25,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 39.8 (Medium) likely because it draws concentrated demand from a place of worship (Shivajinagar Bus Station, Mallya Audikesh Diagnostics Center, Dandu Maramma Temple) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Shivajinagar Bus Station, Mallya Audikesh Diagnostics Center, Dandu Maramma Temple) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618925a47ffff",
+    "lat": 12.969886,
+    "lng": 77.608308,
+    "ward_name": "Shantala Nagar",
+    "cis": 39.7,
+    "cis_class": "Medium",
+    "latent_rate": 154.788,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Alcohol Shop",
+        "Brigade Road",
+        "ShowOff",
+        "Abaran Jewelers"
+      ],
+      "category_counts": {
+        "retail": 84,
+        "food": 23,
+        "office": 11,
+        "religious": 7,
+        "education": 5,
+        "transit": 4,
+        "healthcare": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 16.3)"
+      ],
+      "demand_supply": 16.33,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 49,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 39.7 (Medium) likely because it draws concentrated demand from a place of worship (Alcohol Shop, Brigade Road, ShowOff) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Alcohol Shop, Brigade Road, ShowOff) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "896189262a7ffff",
+    "lat": 12.849944,
+    "lng": 77.656839,
+    "ward_name": "Outside BBMP",
+    "cis": 39.6,
+    "cis_class": "Medium",
+    "latent_rate": 178.239,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Annapurna",
+        "Devi Temple",
+        "Just Bake",
+        "Benzo, Salon and Spa"
+      ],
+      "category_counts": {
+        "retail": 13,
+        "food": 5,
+        "healthcare": 3,
+        "education": 2,
+        "transit": 2,
+        "religious": 1,
+        "office": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 4.9)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 4.89,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 9,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 39.6 (Medium) likely because it draws concentrated demand from a place of worship (Annapurna, Devi Temple, Just Bake) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Annapurna, Devi Temple, Just Bake) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618934a47ffff",
+    "lat": 12.81234,
+    "lng": 77.694129,
+    "ward_name": "Outside BBMP",
+    "cis": 39.6,
+    "cis_class": "Medium",
+    "latent_rate": 88.496,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Tata"
+      ],
+      "category_counts": {
+        "food": 2,
+        "retail": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [],
+      "demand_supply": 0.0,
+      "n_lanes": 2.1
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 0,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 39.6 (Medium) likely because it draws concentrated demand from a shopping/mall (Tata) nearby, and lower mapped economic activity — limited formal off-street parking. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Tata) nearby",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145b323ffff",
+    "lat": 13.008555,
+    "lng": 77.548783,
+    "ward_name": "Nagapura",
+    "cis": 39.6,
+    "cis_class": "Medium",
+    "latent_rate": 52.462,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Mahalakshmi Layout Entarence",
+        "Mahalakshmi Layout Entrance",
+        "Suprabha Hospital",
+        "Sangolli Nursing Home"
+      ],
+      "category_counts": {
+        "retail": 28,
+        "transit": 16,
+        "office": 11,
+        "food": 5,
+        "religious": 5,
+        "healthcare": 4,
+        "education": 2
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 9.9)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 9.87,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 23,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 39.6 (Medium) likely because it draws concentrated demand from a place of worship (Mahalakshmi Layout Entarence, Mahalakshmi Layout Entrance, Suprabha Hospital) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Mahalakshmi Layout Entarence, Mahalakshmi Layout Entrance, Suprabha Hospital) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145b26bffff",
+    "lat": 13.026642,
+    "lng": 77.574957,
+    "ward_name": "Aramane Nagara",
+    "cis": 39.5,
+    "cis_class": "Medium",
+    "latent_rate": 79.337,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Cane Crush",
+        "Just Books",
+        "HOPCOMS",
+        "3M Car Care"
+      ],
+      "category_counts": {
+        "food": 24,
+        "retail": 13,
+        "transit": 4,
+        "office": 2,
+        "healthcare": 2
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 4.9)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 4.89,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 7,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 39.5 (Medium) likely because it draws concentrated demand from a shopping/mall (Cane Crush, Just Books, HOPCOMS) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Cane Crush, Just Books, HOPCOMS) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145901bffff",
+    "lat": 13.047023,
+    "lng": 77.548221,
+    "ward_name": "Veeramadakari",
+    "cis": 39.3,
+    "cis_class": "Medium",
+    "latent_rate": 123.444,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Jalahalli Village",
+        "Nilgiris",
+        "Sharadamba Temple",
+        "Jalahalli Police Station"
+      ],
+      "category_counts": {
+        "transit": 2,
+        "retail": 2,
+        "food": 1,
+        "religious": 1,
+        "education": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 0.44,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 1,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 39.3 (Medium) likely because it draws concentrated demand from a place of worship (Jalahalli Village, Nilgiris, Sharadamba Temple) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Jalahalli Village, Nilgiris, Sharadamba Temple) nearby",
+      "narrow carriageway (~2 lanes)",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8961892e9bbffff",
+    "lat": 12.9795,
+    "lng": 77.610276,
+    "ward_name": "Sampangiram Nagar",
+    "cis": 39.2,
+    "cis_class": "Medium",
+    "latent_rate": 26.932,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Malabar Jewellery",
+        "Sri Krishna Diamond and Jewellery",
+        "The Brown Shop",
+        "Lee Showroom"
+      ],
+      "category_counts": {
+        "retail": 41,
+        "transit": 6,
+        "office": 4,
+        "food": 3,
+        "education": 3,
+        "religious": 2
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 3.3)"
+      ],
+      "demand_supply": 3.33,
+      "n_lanes": 2.1
+    },
+    "income_proxy": {
+      "level": "moderate",
+      "basis": "commercial-POI density",
+      "commercial_poi": 4,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 39.2 (Medium) likely because it draws concentrated demand from a place of worship (Malabar Jewellery, Sri Krishna Diamond and Jewellery, The Brown Shop) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Malabar Jewellery, Sri Krishna Diamond and Jewellery, The Brown Shop) nearby",
+      "the surrounding road capacity is under-provisioned for that demand"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618920a9bffff",
+    "lat": 12.95659,
+    "lng": 77.732155,
+    "ward_name": "Whitefield",
+    "cis": 39.1,
+    "cis_class": "Medium",
+    "latent_rate": 114.234,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Siddapura (towards Whitefield)",
+        "Barrels",
+        "Siddapura (towards Kundalahalli Gate)",
+        "Urban Ladder - Whitefield"
+      ],
+      "category_counts": {
+        "retail": 36,
+        "food": 15,
+        "office": 3,
+        "transit": 2,
+        "religious": 2,
+        "healthcare": 1,
+        "education": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 11.2)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 11.2,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 40,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 39.1 (Medium) likely because it draws concentrated demand from a place of worship (Siddapura (towards Whitefield), Barrels, Siddapura (towards Kundalahalli Gate)) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Siddapura (towards Whitefield), Barrels, Siddapura (towards Kundalahalli Gate)) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89618920babffff",
+    "lat": 12.951369,
+    "lng": 77.700128,
+    "ward_name": "Marathahalli",
+    "cis": 38.9,
+    "cis_class": "Medium",
+    "latent_rate": 27.693,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Danube Home",
+        "Hitech Communication",
+        "Damro",
+        "Girias Electronics"
+      ],
+      "category_counts": {
+        "retail": 44,
+        "food": 27,
+        "office": 10,
+        "transit": 5,
+        "healthcare": 3
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 11.8)"
+      ],
+      "demand_supply": 11.78,
+      "n_lanes": 2.1
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 50,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 38.9 (Medium) likely because it draws concentrated demand from a shopping/mall (Danube Home, Hitech Communication, Damro) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Danube Home, Hitech Communication, Damro) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "8960145b30fffff",
+    "lat": 13.010674,
+    "lng": 77.554834,
+    "ward_name": "Subramanya Nagar",
+    "cis": 38.9,
+    "cis_class": "Medium",
+    "latent_rate": 25.167,
+    "place": {
+      "primary_type": "religious",
+      "primary_label": "place of worship",
+      "landmarks": [
+        "Government Soap Factory",
+        "RMKV Silks",
+        "Debenhams",
+        "Debenhams Cosmetic"
+      ],
+      "category_counts": {
+        "retail": 92,
+        "food": 32,
+        "office": 9,
+        "transit": 2,
+        "healthcare": 2,
+        "religious": 2,
+        "education": 1,
+        "market": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "moderate",
+      "flags": [
+        "under_provisioned"
+      ],
+      "notes": [
+        "high activity on a road of limited capacity (demand/supply ≈ 26.9)",
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 26.93,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "high",
+      "basis": "commercial-POI density",
+      "commercial_poi": 101,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 38.9 (Medium) likely because it draws concentrated demand from a place of worship (Government Soap Factory, RMKV Silks, Debenhams) nearby, and the surrounding road capacity is under-provisioned for that demand. Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "place of worship",
+    "factors": [
+      "draws concentrated demand from a place of worship (Government Soap Factory, RMKV Silks, Debenhams) nearby",
+      "the surrounding road capacity is under-provisioned for that demand",
+      "narrow carriageway (~2 lanes)",
+      "high commercial intensity (a high-activity, likely higher-rent locality)"
+    ],
+    "reason_source": "rule-based"
+  },
+  {
+    "hotspot_id": "89601451207ffff",
+    "lat": 12.910361,
+    "lng": 77.514679,
+    "ward_name": "Rajarajeshwari Nagar",
+    "cis": 38.9,
+    "cis_class": "Medium",
+    "latent_rate": 163.939,
+    "place": {
+      "primary_type": "retail",
+      "primary_label": "shopping/mall",
+      "landmarks": [
+        "Bengaluru Children Hospital",
+        "Manipal Speciality Hospital",
+        "YGR Signature Mall"
+      ],
+      "category_counts": {
+        "transit": 2,
+        "food": 1,
+        "healthcare": 1,
+        "retail": 1
+      }
+    },
+    "infrastructure": {
+      "investment_level": "adequate",
+      "flags": [],
+      "notes": [
+        "narrow carriageway (~2 lanes)"
+      ],
+      "demand_supply": 1.0,
+      "n_lanes": 2.0
+    },
+    "income_proxy": {
+      "level": "low",
+      "basis": "commercial-POI density",
+      "commercial_poi": 1,
+      "note": "proxy — dataset has no per-capita / per-sq-ft income"
+    },
+    "reason": "This spot scores CIS 38.9 (Medium) likely because it draws concentrated demand from a shopping/mall (Bengaluru Children Hospital, Manipal Speciality Hospital, YGR Signature Mall) nearby, and narrow carriageway (~2 lanes). Illegal parking accumulates where demand outstrips orderly supply, spilling vehicles onto the carriageway and choking throughput.",
+    "primary_driver": "shopping/mall",
+    "factors": [
+      "draws concentrated demand from a shopping/mall (Bengaluru Children Hospital, Manipal Speciality Hospital, YGR Signature Mall) nearby",
+      "narrow carriageway (~2 lanes)",
+      "lower mapped economic activity — limited formal off-street parking"
+    ],
+    "reason_source": "rule-based"
+  }
+]

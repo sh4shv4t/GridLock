@@ -33,3 +33,6 @@ backend/*.csv
 # Secrets / local env
 .env
 *.local
+
+# Local-only demo script
+demo_script.md

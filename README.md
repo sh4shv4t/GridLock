@@ -1,4 +1,4 @@
-# 🚦 Gridlock 2.0 — Parking-Induced Congestion Intelligence
+# 🚦 Visor — Parking-Induced Congestion Intelligence
 
 ![Status](https://img.shields.io/badge/status-hackathon%20build-orange)
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)
